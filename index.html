@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>DevRuby | Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ruby: #b11226;
+      --ruby-dark: #7a0b18;
+      --black: #0b0b0b;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .85)),
+        url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      padding: 32px 20px;
+      text-align: center;
+    }
+
+    /* ===== LOGO / NOME ===== */
+    .logo {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      position: relative;
+      animation: glow 3s infinite alternate;
+    }
+
+    .logo span {
+      color: var(--ruby);
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px var(--ruby-dark);
+      }
+
+      to {
+        text-shadow: 0 0 25px var(--ruby);
+      }
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 30px;
+    }
+
+    /* ===== LINKS ===== */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .link-btn {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 14px 18px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .link-btn:hover {
+      background: rgba(177, 18, 38, 0.15);
+      border-color: var(--ruby);
+      transform: scale(1.03);
+    }
+
+    /* ===== IMAGEM CIRCULAR ===== */
+    .link-btn img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--ruby);
+    }
+
+    /* ===== EFEITO METEORO ===== */
+    .link-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 120%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: rotate(25deg);
+      transition: 0.6s;
+    }
+
+    .link-btn:hover::before {
+      left: 120%;
+    }
+
+    /* ===== RAPOSA (placeholder) ===== */
+    .fox {
+      width: 80px;
+      margin: 30px auto 0;
+      opacity: 0.85;
+      animation: jump 2.5s infinite ease-in-out;
+    }
+
+    @keyframes jump {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* ===== DESKTOP ===== */
+    @media (min-width: 900px) {
+      .container {
+        max-width: 650px;
+      }
+
+      .logo {
+        font-size: 4rem;
+      }
+
+      .link-btn {
+        font-size: 1.1rem;
+        padding: 18px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- NOME -->
+    <div class="logo">
+      Dev<span>Ruby</span>
+    </div>
+    <div class="subtitle">
+      Sistemas • Automação • Produtos Digitais
+    </div>
+
+    <!-- LINKS -->
+    <div class="links">
+
+
+
+      <a href="https://rub11.github.io/dashboard-financeiro/" class="link-btn" target="_blank">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
+        Dashboard Financeiro
+      </a>
+
+      <a href="https://rub11.github.io/dashboard-financeiro/" class="link-btn" target="_blank">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
+        Dashboard Financeiro + Bônus
+      </a>
+
+      <a href="https://pay.kiwify.com.br/ajzDyVH" class="link-btn" target="_blank">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
+        Curso Código de Vendas (PRIMEIROS 3,000 EM 40 DIAS.)
+      </a>
+
+      <a href="https://rub11.github.io/PROJETOS-SITES/" class="link-btn" target="_blank">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
+        Personalizar um site ou Sistema no WhatsApp.
+      </a>
+
+    </div>
+
+
+
+  </div>
+
+</body>
+
+</html>
