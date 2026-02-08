@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escolha seu Caminho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    /* VIDEO DE FUNDO */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* OVERLAY ESCURO */
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+    /* CONTEÚDO CENTRAL */
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .box {
+      max-width: 700px;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      border-radius: 16px;
+      padding: 50px 30px;
+      box-shadow: 0 0 40px rgba(255, 0, 0, 0.25);
+    }
+
+    .box h1 {
+      color: #fff;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .box h1 span {
+      color: #e50914;
+    }
+
+    .box p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    /* BOTÕES */
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e50914, #b00610);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(229, 9, 20, 0.7);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #e50914;
+    }
+
+    .btn-secondary:hover {
+      background: #e50914;
+      transform: scale(1.05);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 600px) {
+      .box h1 {
+        font-size: 1.7rem;
+      }
+
+      .box p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO DE FUNDO -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo em background.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="container">
+    <div class="box">
+      <h1>Escolha o seu <span>próximo passo</span></h1>
+      <p>
+        Veja modelos prontos de sistemas e páginas ou contrate um sistema
+        personalizado para levar sua empresa para outro nível.
+      </p>
+
+      <div class="buttons">
+        <a href="modelos.html" class="btn btn-secondary">
+          Ver Modelos de Sistemas
+        </a>
+
+        <a href="contratar.html" class="btn btn-primary">
+          Contratar um Sistema
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Aqui você pode adicionar tracking, animações futuras ou lógica extra
+    console.log("Página carregada com sucesso");
+  </script>
+
+</body>
+</html>
