@@ -26,16 +26,37 @@
 
     body {
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .85)),
-        url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       color: var(--white);
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Container do vídeo de fundo */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+
+    /* Overlay escuro sobre o vídeo */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.703);
+      z-index: -1;
     }
 
     .container {
@@ -43,6 +64,8 @@
       max-width: 520px;
       padding: 32px 20px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     /* ===== LOGO / NOME ===== */
@@ -61,11 +84,11 @@
 
     @keyframes glow {
       from {
-        text-shadow: 0 0 10px var(--ruby-dark);
+        text-shadow: 0 0 8px var(--ruby-dark);
       }
 
       to {
-        text-shadow: 0 0 25px var(--ruby);
+        text-shadow: 0 0 15px var(--ruby);
       }
     }
 
@@ -80,9 +103,11 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+
     }
 
     .link-btn {
+
       position: relative;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -96,12 +121,14 @@
       font-size: 1rem;
       overflow: hidden;
       transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
     }
 
     .link-btn:hover {
-      background: rgba(177, 18, 38, 0.15);
+      background: rgba(177, 18, 38, 0.2);
       border-color: var(--ruby);
-      transform: scale(1.03);
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(177, 18, 38, 0.2);
     }
 
     /* ===== IMAGEM CIRCULAR ===== */
@@ -121,7 +148,7 @@
       left: -100%;
       width: 120%;
       height: 200%;
-      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.15), transparent);
       transform: rotate(25deg);
       transition: 0.6s;
     }
@@ -150,6 +177,14 @@
       }
     }
 
+    /* ===== CENTRALIZAÇÃO VERTICAL ===== */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
     /* ===== DESKTOP ===== */
     @media (min-width: 900px) {
       .container {
@@ -165,10 +200,114 @@
         padding: 18px 22px;
       }
     }
+
+    /* ===== RESPONSIVIDADE ADICIONAL ===== */
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 2.5rem;
+      }
+
+      .link-btn {
+        font-size: 0.9rem;
+        padding: 12px 16px;
+      }
+
+      .link-btn img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    /* ===== EFEITOS DE BRILHO MAIS LEVES ===== */
+    .glow-effect {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(177, 18, 38, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: float 25s infinite linear;
+      opacity: 0.6;
+    }
+
+    .glow-1 {
+      top: 15%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .glow-2 {
+      bottom: 15%;
+      right: 10%;
+      animation: float 30s infinite linear reverse;
+      animation-delay: 1s;
+    }
+
+    /* Efeito de brilho muito sutil no canto */
+    .glow-3 {
+      width: 150px;
+      height: 150px;
+      top: 5%;
+      right: 5%;
+      background: radial-gradient(circle, rgba(177, 18, 38, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+      animation: float 35s infinite linear;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+      }
+
+      33% {
+        transform: translate(15px, 15px) rotate(120deg) scale(1.05);
+      }
+
+      66% {
+        transform: translate(-10px, 10px) rotate(240deg) scale(0.95);
+      }
+
+      100% {
+        transform: translate(0, 0) rotate(360deg) scale(1);
+      }
+    }
+
+    /* Brilho sutil nos cantos do container */
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      border-radius: 20px;
+      background: radial-gradient(circle at 20% 20%, rgba(177, 18, 38, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(177, 18, 38, 0.03) 0%, transparent 50%);
+      z-index: -1;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- Vídeo de fundo -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <!-- Vídeo de tecnologia em loop -->
+      <source src="video/14599303_3840_2160_25fps.mp4" type="video/mp4">
+      <!-- Fallback para imagem caso o vídeo não carregue -->
+      <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b" alt="Fundo tecnológico"
+        style="width: 100%; height: 100%; object-fit: cover;">
+    </video>
+  </div>
+
+  <!-- Overlay escuro sobre o vídeo -->
+  <div class="video-overlay"></div>
+
+  <!-- Efeitos de brilho -->
+  <div class="glow-effect glow-1"></div>
+  <div class="glow-effect glow-2"></div>
 
   <div class="container">
 
@@ -182,36 +321,119 @@
 
     <!-- LINKS -->
     <div class="links">
-
-
-
       <a href="https://rub11.github.io/dashboard-financeiro/" class="link-btn" target="_blank">
-        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="Dashboard Financeiro">
         Dashboard Financeiro
       </a>
 
 
 
-      <a href="https://rub11.github.io/CODIGO-DE-VENDAS-/" class="link-btn" target="_blank">
-        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
-        Curso Código de Vendas (PRIMEIROS 900,00 EM 12 DIAS.)
-      </a>
-
-
       <a href="pagina de modelos de sites/modelos.html" class="link-btn" target="_blank">
-        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="Contrate um sistema">
         Contrate um sistema para sua empresa
       </a>
 
-     
-
-
+      <a href="https://rub11.github.io/CODIGO-DE-VENDAS-/" class="link-btn" target="_blank">
+        <img src="img/Gemini_Generated_Image_yrmeajyrmeajyrme.png" alt="Curso Código de Vendas">
+        Curso Código de Vendas
+      </a>
     </div>
-
-
 
   </div>
 
+  <script>
+    // Script para garantir que o vídeo de fundo funcione corretamente
+    document.addEventListener('DOMContentLoaded', function () {
+      const video = document.querySelector('video');
+
+      // Forçar o autoplay mesmo em dispositivos móveis
+      if (video) {
+        video.play().catch(function (error) {
+          console.log("Autoplay bloqueado, tentando com mute forçado...");
+          video.muted = true;
+          video.play();
+        });
+
+        // Garantir que o vídeo continue em loop
+        video.loop = true;
+
+        // Adicionar atributo playsinline para iOS
+        video.setAttribute('playsinline', '');
+      }
+
+      // Efeito de interação nos botões
+      const linkButtons = document.querySelectorAll('.link-btn');
+
+      linkButtons.forEach(button => {
+        button.addEventListener('mousedown', function () {
+          this.style.transform = 'scale(0.98)';
+        });
+
+        button.addEventListener('mouseup', function () {
+          this.style.transform = 'scale(1.03)';
+        });
+
+        button.addEventListener('mouseleave', function () {
+          this.style.transform = 'scale(1)';
+        });
+
+        // Para toque em dispositivos móveis
+        button.addEventListener('touchstart', function () {
+          this.style.transform = 'scale(0.98)';
+        });
+
+        button.addEventListener('touchend', function () {
+          this.style.transform = 'scale(1.03)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1)';
+          }, 150);
+        });
+      });
+
+      // Verificar se as imagens existem, caso contrário usar placeholder
+      const images = document.querySelectorAll('.link-btn img');
+      images.forEach(img => {
+        img.onerror = function () {
+          // Se a imagem não carregar, usar um placeholder com iniciais
+          const parent = this.closest('.link-btn');
+          if (parent) {
+            const text = parent.textContent.trim();
+            const initials = text.charAt(0);
+
+            // Criar um canvas com as iniciais
+            const canvas = document.createElement('canvas');
+            canvas.width = 42;
+            canvas.height = 42;
+            const ctx = canvas.getContext('2d');
+
+            // Fundo
+            ctx.fillStyle = '#b11226';
+            ctx.fillRect(0, 0, 42, 42);
+
+            // Texto
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 20px Poppins';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(initials, 21, 21);
+
+            // Substituir a imagem pelo canvas
+            this.src = canvas.toDataURL();
+          }
+        };
+      });
+    });
+
+    // Redimensionar vídeo para cobrir toda a tela
+    window.addEventListener('resize', function () {
+      const video = document.querySelector('video');
+      if (video) {
+        video.style.width = '100%';
+        video.style.height = '100%';
+        video.style.objectFit = 'cover';
+      }
+    });
+  </script>
 </body>
 
 </html>

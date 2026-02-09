@@ -1,167 +1,421 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Escolha seu Caminho</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-    }
-
-    body {
-      height: 100vh;
-      overflow: hidden;
-      background: #000;
-    }
-
-    /* VIDEO DE FUNDO */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
-
-    /* OVERLAY ESCURO */
-    .overlay {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.65);
-      z-index: -1;
-    }
-
-    /* CONTEÚDO CENTRAL */
-    .container {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .box {
-      max-width: 700px;
-      background: rgba(20, 20, 20, 0.85);
-      border: 1px solid rgba(255, 0, 0, 0.3);
-      border-radius: 16px;
-      padding: 50px 30px;
-      box-shadow: 0 0 40px rgba(255, 0, 0, 0.25);
-    }
-
-    .box h1 {
-      color: #fff;
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-    }
-
-    .box h1 span {
-      color: #e50914;
-    }
-
-    .box p {
-      color: #ccc;
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-
-    /* BOTÕES */
-    .buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      padding: 16px 32px;
-      font-size: 1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: 0.3s;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #e50914, #b00610);
-      color: #fff;
-      border: none;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(229, 9, 20, 0.7);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      border: 2px solid #e50914;
-    }
-
-    .btn-secondary:hover {
-      background: #e50914;
-      transform: scale(1.05);
-    }
-
-    /* RESPONSIVO */
-    @media (max-width: 600px) {
-      .box h1 {
-        font-size: 1.7rem;
-      }
-
-      .box p {
-        font-size: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevRuby - Sistemas, Automação e Produtos Digitais</title>
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            color: #fff;
+            line-height: 1.6;
+        }
+        
+        /* Container do vídeo de fundo */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Overlay escuro sobre o vídeo */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+        }
+        
+        /* Container principal */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Cabeçalho com logo */
+        .header {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 100%;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-size: 28px;
+            font-weight: 800;
+            color: #e63946;
+            letter-spacing: 1px;
+        }
+        
+        .logo-subtitle {
+            font-size: 14px;
+            color: #ccc;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+        
+        .dashboard-badge {
+            background-color: rgba(230, 57, 70, 0.2);
+            color: #ff6b6b;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(230, 57, 70, 0.4);
+        }
+        
+        /* Conteúdo principal */
+        .main-content {
+            max-width: 900px;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.2s ease-out;
+        }
+        
+        /* Título principal */
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #e63946);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Descrição */
+        .description {
+            font-size: 1.4rem;
+            color: #ddd;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Container dos botões */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        /* Botões */
+        .btn {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            min-width: 250px;
+            letter-spacing: 0.5px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Botão principal */
+        .btn-primary {
+            background-color: #e63946;
+            color: white;
+            transform: translateY(0);
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff1e2d;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.4);
+        }
+        
+        /* Botão secundário */
+        .btn-secondary {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Badge do curso */
+        .course-badge {
+            background: linear-gradient(90deg, #e63946, #ff6b6b);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        /* Rodapé */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            padding: 0 20px;
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .description {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                min-width: 200px;
+                padding: 16px 30px;
+            }
+            
+            .header {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .dashboard-badge {
+                align-self: flex-start;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .description {
+                font-size: 1rem;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .logo-main {
+                font-size: 24px;
+            }
+            
+            .course-badge {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+                text-align: center;
+            }
+        }
+        
+        /* Efeitos de brilho tecnológico */
+        .tech-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .glow-1 {
+            top: 10%;
+            left: 10%;
+            animation: float 20s infinite linear;
+        }
+        
+        .glow-2 {
+            bottom: 10%;
+            right: 10%;
+            animation: float 25s infinite linear reverse;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, 30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+    </style>
 </head>
-
 <body>
-
-  <!-- VIDEO DE FUNDO -->
-  <video class="video-bg" autoplay muted loop>
-    <source src="video.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo em background.
-  </video>
-
-  <div class="overlay"></div>
-
-  <div class="container">
-    <div class="box">
-      <h1>Escolha o seu <span>próximo passo</span></h1>
-      <p>
-        Veja modelos prontos de sistemas e páginas ou contrate um sistema
-        personalizado para levar sua empresa para outro nível.
-      </p>
-
-      <div class="buttons">
-        <a href="modelos.html" class="btn btn-secondary">
-          Ver Modelos de Sistemas
-        </a>
-
-        <a href="contratar.html" class="btn btn-primary">
-          Contratar um Sistema
-        </a>
-      </div>
+    <!-- Vídeo de fundo -->
+    <div class="video-background">
+        <video autoplay muted loop>
+            <!-- Vídeo institucional de tecnologia -->
+            <source src="../video/12849559_1920_1080_25fps.mp4" type="video/mp4">
+            <!-- Fallback para caso o vídeo não carregue -->
+            Seu navegador não suporta vídeos HTML5.
+        </video>
     </div>
-  </div>
-
-  <script>
-    // Aqui você pode adicionar tracking, animações futuras ou lógica extra
-    console.log("Página carregada com sucesso");
-  </script>
-
+    
+    <!-- Overlay escuro sobre o vídeo -->
+    <div class="video-overlay"></div>
+    
+    <!-- Efeitos de brilho tecnológico -->
+    <div class="tech-glow glow-1"></div>
+    <div class="tech-glow glow-2"></div>
+    
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Cabeçalho com logo -->
+        <div class="header">
+            <div class="logo">
+                <div class="logo-main">DevRuby</div>
+                <div class="logo-subtitle">SISTEMAS · AUTOMAÇÃO · PRODUTOS DIGITAIS</div>
+            </div>
+            <div class="dashboard-badge">Dashboard Financeiro</div>
+        </div>
+        
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <h1 class="main-title">Escolha o seu próximo passo</h1>
+            <p class="description">Veja modelos prontos de sistemas e páginas ou contrate um sistema personalizado para sua empresa.</p>
+            
+            <!-- Container dos botões -->
+            <div class="buttons-container">
+                <a href="modelos.html" class="btn btn-secondary">Ver Modelos de Sistemas</a>
+                <a href="contratar.html" class="btn btn-primary">Contratar um Sistema</a>
+            </div>
+            
+          
+        </div>
+        
+        <!-- Rodapé -->
+        <div class="footer">
+            <p>Contrate um sistema para sua empresa</p>
+        </div>
+    </div>
+    
+    <script>
+        // Script para garantir que o vídeo de fundo funcione corretamente em todos os navegadores
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            
+            // Forçar o autoplay em dispositivos móveis
+            video.play().catch(function(error) {
+                console.log("Autoplay não permitido, tentando com mute:");
+                video.muted = true;
+                video.play();
+            });
+            
+            // Adicionar efeito de interação nos botões
+            const buttons = document.querySelectorAll('.btn');
+            
+            buttons.forEach(button => {
+                // Efeito de clique
+                button.addEventListener('mousedown', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseup', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Simular redirecionamento (para demonstração)
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Em ambiente real, remover este código e deixar os links funcionarem normalmente
+                    if(this.getAttribute('href') === 'modelos.html' || this.getAttribute('href') === 'contratar.html') {
+                        e.preventDefault();
+                        alert(`Em um ambiente real, você seria redirecionado para: ${this.getAttribute('href')}\n\nEsta é apenas uma demonstração da landing page.`);
+                    }
+                });
+            });
+            
+            // Efeito de digitação para o título (opcional)
+            const title = document.querySelector('.main-title');
+            const originalText = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Iniciar efeito de digitação após 0.5 segundos
+            setTimeout(typeWriter, 500);
+        });
+    </script>
 </body>
 </html>
