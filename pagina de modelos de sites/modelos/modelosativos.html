@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria de Modelos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* VIDEO */
+        .video-background {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+        }
+        
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: -1;
+        }
+
+        /* HEADER */
+        .main-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+        
+        .main-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .main-header p {
+            font-size: 1.1rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            padding: 0 20px 80px;
+        }
+
+        /* BUSCA */
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 70px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 30px;
+            border: 2px solid #333;
+            outline: none;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            border-color: #e63946;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .search-box::after {
+            content: "🔍";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        /* CATEGORIA */
+        .category {
+            margin-bottom: 90px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .category.hidden {
+            display: none;
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-left: 4px solid #e63946;
+            padding-left: 15px;
+            color: #fff;
+        }
+
+        /* CONTADOR */
+        .results-counter {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            color: #aaa;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto 50px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD */
+        .card {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #e63946;
+            box-shadow: 0 15px 30px rgba(230, 57, 70, 0.2);
+        }
+        
+        .card.hidden {
+            display: none;
+        }
+
+        /* PREVIEW */
+        .preview {
+            height: 170px;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .preview img {
+            transform: scale(1.05);
+        }
+
+        /* BADGE */
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #e63946;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* CONTEUDO */
+        .content {
+            padding: 20px;
+        }
+        
+        .content h3 {
+            margin-bottom: 10px;
+            min-height: 20px;
+            color: #fff;
+            font-size: 1.3rem;
+        }
+        
+        .content p {
+            font-size: 0.9rem;
+            color: #aaa;
+            min-height: 18px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* BOTAO */
+        .btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            padding: 12px;
+            border-radius: 25px;
+            background: #e63946;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #d32f2f;
+        }
+
+        /* FOOTER */
+        .main-footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .main-footer p {
+            margin-bottom: 10px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .category-title {
+                font-size: 1.7rem;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .main-header {
+                padding: 40px 15px 30px;
+            }
+            
+            .main-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .search-box {
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="video-background">
+        <video autoplay muted loop>
+            <!-- Adicione seu vídeo aqui -->
+            <source src="" type="video/mp4">
+        </video>
+    </div>
+    <div class="video-overlay"></div>
+
+    <header class="main-header">
+        <h1>Galeria de Modelos</h1>
+        <p>Encontre o template perfeito para o seu projeto</p>
+    </header>
+
+    <div class="container">
+
+        <!-- BUSCA -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar por categoria ou modelo...">
+        </div>
+
+        <!-- CONTADOR DE RESULTADOS -->
+        <div class="results-counter">
+            Mostrando <span id="visibleCount">0</span> de <span id="totalCount">0</span> modelos
+        </div>
+
+        <!-- CATEGORIA 1 -->
+        <section class="category" data-category="empresas">
+            <h2 class="category-title">Empresas & Serviços</h2>
+
+            <div class="grid">
+                <div class="card" data-search="modelo 01 empresas empresas serviços">
+                    <div class="preview">
+                        <span class="badge">Modelo 01</span>
+                        <img src="" alt="Modelo 01">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 01</h3>
+                        <p>Descrição breve do modelo 01 para empresas e serviços.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 02 empresas empresas serviços">
+                    <div class="preview">
+                        <span class="badge">Modelo 02</span>
+                        <img src="" alt="Modelo 02">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 02</h3>
+                        <p>Descrição breve do modelo 02 para empresas e serviços.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 03 empresas empresas serviços">
+                    <div class="preview">
+                        <span class="badge">Modelo 03</span>
+                        <img src="" alt="Modelo 03">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 03</h3>
+                        <p>Descrição breve do modelo 03 para empresas e serviços.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 04 empresas empresas serviços">
+                    <div class="preview">
+                        <span class="badge">Modelo 04</span>
+                        <img src="" alt="Modelo 04">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 04</h3>
+                        <p>Descrição breve do modelo 04 para empresas e serviços.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2 -->
+        <section class="category" data-category="restaurantes">
+            <h2 class="category-title">Restaurantes & Gastronomia</h2>
+
+            <div class="grid">
+                <div class="card" data-search="modelo 01 restaurantes gastronomia comida">
+                    <div class="preview">
+                        <span class="badge">Modelo 01</span>
+                        <img src="" alt="Modelo 01">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 01</h3>
+                        <p>Descrição breve do modelo 01 para restaurantes.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 02 restaurantes gastronomia comida">
+                    <div class="preview">
+                        <span class="badge">Modelo 02</span>
+                        <img src="" alt="Modelo 02">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 02</h3>
+                        <p>Descrição breve do modelo 02 para restaurantes.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 03 restaurantes gastronomia comida">
+                    <div class="preview">
+                        <span class="badge">Modelo 03</span>
+                        <img src="" alt="Modelo 03">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 03</h3>
+                        <p>Descrição breve do modelo 03 para restaurantes.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 04 restaurantes gastronomia comida">
+                    <div class="preview">
+                        <span class="badge">Modelo 04</span>
+                        <img src="" alt="Modelo 04">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 04</h3>
+                        <p>Descrição breve do modelo 04 para restaurantes.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 3 -->
+        <section class="category" data-category="portfolios">
+            <h2 class="category-title">Portfólios Pessoais</h2>
+
+            <div class="grid">
+                <div class="card" data-search="modelo 01 portfólios pessoal trabalho">
+                    <div class="preview">
+                        <span class="badge">Modelo 01</span>
+                        <img src="" alt="Modelo 01">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 01</h3>
+                        <p>Descrição breve do modelo 01 para portfólios.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 02 portfólios pessoal trabalho">
+                    <div class="preview">
+                        <span class="badge">Modelo 02</span>
+                        <img src="" alt="Modelo 02">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 02</h3>
+                        <p>Descrição breve do modelo 02 para portfólios.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 03 portfólios pessoal trabalho">
+                    <div class="preview">
+                        <span class="badge">Modelo 03</span>
+                        <img src="" alt="Modelo 03">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 03</h3>
+                        <p>Descrição breve do modelo 03 para portfólios.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 04 portfólios pessoal trabalho">
+                    <div class="preview">
+                        <span class="badge">Modelo 04</span>
+                        <img src="" alt="Modelo 04">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 04</h3>
+                        <p>Descrição breve do modelo 04 para portfólios.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 4 -->
+        <section class="category" data-category="eventos">
+            <h2 class="category-title">Eventos & Festas</h2>
+
+            <div class="grid">
+                <div class="card" data-search="modelo 01 eventos festas celebração">
+                    <div class="preview">
+                        <span class="badge">Modelo 01</span>
+                        <img src="" alt="Modelo 01">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 01</h3>
+                        <p>Descrição breve do modelo 01 para eventos.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 02 eventos festas celebração">
+                    <div class="preview">
+                        <span class="badge">Modelo 02</span>
+                        <img src="" alt="Modelo 02">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 02</h3>
+                        <p>Descrição breve do modelo 02 para eventos.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 03 eventos festas celebração">
+                    <div class="preview">
+                        <span class="badge">Modelo 03</span>
+                        <img src="" alt="Modelo 03">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 03</h3>
+                        <p>Descrição breve do modelo 03 para eventos.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 04 eventos festas celebração">
+                    <div class="preview">
+                        <span class="badge">Modelo 04</span>
+                        <img src="" alt="Modelo 04">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 04</h3>
+                        <p>Descrição breve do modelo 04 para eventos.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIA 5 -->
+        <section class="category" data-category="educacao">
+            <h2 class="category-title">Educação & Cursos</h2>
+
+            <div class="grid">
+                <div class="card" data-search="modelo 01 educação cursos aprendizado">
+                    <div class="preview">
+                        <span class="badge">Modelo 01</span>
+                        <img src="" alt="Modelo 01">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 01</h3>
+                        <p>Descrição breve do modelo 01 para educação.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 02 educação cursos aprendizado">
+                    <div class="preview">
+                        <span class="badge">Modelo 02</span>
+                        <img src="" alt="Modelo 02">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 02</h3>
+                        <p>Descrição breve do modelo 02 para educação.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 03 educação cursos aprendizado">
+                    <div class="preview">
+                        <span class="badge">Modelo 03</span>
+                        <img src="" alt="Modelo 03">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 03</h3>
+                        <p>Descrição breve do modelo 03 para educação.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+
+                <div class="card" data-search="modelo 04 educação cursos aprendizado">
+                    <div class="preview">
+                        <span class="badge">Modelo 04</span>
+                        <img src="" alt="Modelo 04">
+                    </div>
+                    <div class="content">
+                        <h3>Título do Modelo 04</h3>
+                        <p>Descrição breve do modelo 04 para educação.</p>
+                        <a class="btn" href="#">Ver prévia</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="main-footer">
+        <p>Galeria de Modelos &copy; <span id="currentYear"></span></p>
+        <p>Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById("searchInput");
+            const cards = document.querySelectorAll(".card");
+            const categories = document.querySelectorAll(".category");
+            const visibleCountElement = document.getElementById("visibleCount");
+            const totalCountElement = document.getElementById("totalCount");
+            
+            // Atualizar contador total
+            totalCountElement.textContent = cards.length;
+            
+            // Atualizar ano atual no footer
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+            
+            // Função para atualizar contador de modelos visíveis
+            function updateVisibleCount() {
+                const visibleCards = document.querySelectorAll('.card:not(.hidden)').length;
+                visibleCountElement.textContent = visibleCards;
+            }
+            
+            // Inicializar contador
+            updateVisibleCount();
+            
+            input.addEventListener("input", () => {
+                const value = input.value.toLowerCase().trim();
+                
+                categories.forEach(category => {
+                    let visibleCardsInCategory = 0;
+                    
+                    category.querySelectorAll(".card").forEach(card => {
+                        const search = card.getAttribute("data-search").toLowerCase();
+                        
+                        if (value === "" || search.includes(value)) {
+                            card.classList.remove("hidden");
+                            visibleCardsInCategory++;
+                        } else {
+                            card.classList.add("hidden");
+                        }
+                    });
+                    
+                    // Mostrar/ocultar categoria baseado nos cards visíveis
+                    if (visibleCardsInCategory > 0 || value === "") {
+                        category.classList.remove("hidden");
+                    } else {
+                        category.classList.add("hidden");
+                    }
+                });
+                
+                // Atualizar contador
+                updateVisibleCount();
+            });
+            
+            // Adicionar evento de clique nos botões "Ver prévia"
+            document.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const card = this.closest('.card');
+                    const title = card.querySelector('h3').textContent;
+                    alert(`Prévia do modelo: ${title}\n\nEsta funcionalidade abriria uma demonstração completa do template.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
