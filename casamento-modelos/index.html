@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +13,11 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         body {
             background-color: #0a0a14;
             color: #fff;
@@ -26,7 +25,7 @@
             overflow-x: hidden;
             position: relative;
         }
-
+        
         /* Vídeo de fundo */
         #background-video {
             position: fixed;
@@ -38,7 +37,7 @@
             z-index: -2;
             opacity: 0.4;
         }
-
+        
         .video-overlay {
             position: fixed;
             top: 0;
@@ -48,7 +47,7 @@
             background: linear-gradient(135deg, rgba(10, 10, 20, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%);
             z-index: -1;
         }
-
+        
         /* Container principal */
         .container {
             max-width: 1400px;
@@ -57,7 +56,7 @@
             position: relative;
             z-index: 1;
         }
-
+        
         /* Header */
         header {
             background-color: rgba(26, 26, 46, 0.85);
@@ -69,14 +68,14 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
-
+        
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
@@ -85,18 +84,18 @@
             gap: 10px;
             flex-shrink: 0;
         }
-
+        
         .logo i {
-            color: #ff0000;
+            color: #00c6ff;
         }
-
+        
         .logo span {
-            background: linear-gradient(to right, #ff0000, #ff0000);
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-
+        
         /* Barra de pesquisa */
         .search-container {
             flex: 1;
@@ -105,7 +104,7 @@
             margin: 10px 20px;
             position: relative;
         }
-
+        
         .search-box {
             width: 100%;
             padding: 14px 20px;
@@ -118,18 +117,18 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
         }
-
+        
         .search-box:focus {
             outline: none;
             border-color: #00c6ff;
             box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
             background-color: rgba(255, 255, 255, 0.1);
         }
-
+        
         .search-box::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
-
+        
         .search-icon {
             position: absolute;
             left: 18px;
@@ -137,7 +136,7 @@
             transform: translateY(-50%);
             color: rgba(255, 255, 255, 0.7);
         }
-
+        
         .search-results {
             position: absolute;
             top: 100%;
@@ -154,7 +153,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-top: none;
         }
-
+        
         .search-result-item {
             padding: 15px 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -165,16 +164,16 @@
             color: #fff;
             transition: all 0.2s;
         }
-
+        
         .search-result-item:hover {
             background-color: rgba(0, 198, 255, 0.1);
         }
-
+        
         .search-result-item i {
             color: #00c6ff;
             font-size: 0.9rem;
         }
-
+        
         /* Contador de resultados */
         .results-count {
             padding: 20px;
@@ -189,7 +188,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             flex-wrap: wrap;
         }
-
+        
         /* Categorias */
         .category {
             margin-bottom: 100px;
@@ -200,13 +199,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease;
         }
-
+        
         .category:hover {
             transform: translateY(-5px);
             border-color: rgba(0, 198, 255, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-
+        
         .category-title {
             font-size: 2.2rem;
             margin-bottom: 10px;
@@ -217,7 +216,7 @@
             background-clip: text;
             color: transparent;
         }
-
+        
         .category-title::before {
             content: '';
             position: absolute;
@@ -225,24 +224,24 @@
             top: 0;
             bottom: 0;
             width: 5px;
-            background: linear-gradient(to bottom, #ff0000, #ff0000);
+            background: linear-gradient(to bottom, #00c6ff, #0072ff);
             border-radius: 5px;
         }
-
+        
         .category-subtitle {
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 40px;
             margin-left: 20px;
             font-size: 1.1rem;
         }
-
+        
         /* Grid de cards */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
         }
-
+        
         .card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
@@ -254,35 +253,35 @@
             height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-
+        
         .card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             border-color: rgba(0, 198, 255, 0.3);
         }
-
+        
         .preview {
             position: relative;
             height: 220px;
             overflow: hidden;
         }
-
+        
         .preview img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.7s ease;
         }
-
+        
         .card:hover .preview img {
             transform: scale(1.1);
         }
-
+        
         .badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: linear-gradient(to right, #ff0000, #ff0000);
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             color: white;
             padding: 6px 12px;
             border-radius: 20px;
@@ -290,30 +289,30 @@
             font-weight: 600;
             box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
         }
-
+        
         .content {
             padding: 25px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-
+        
         .content h3 {
             font-size: 1.4rem;
             margin-bottom: 12px;
             color: #fff;
         }
-
+        
         .content p {
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 25px;
             flex-grow: 1;
             line-height: 1.6;
         }
-
+        
         .btn {
             display: inline-block;
-            background: linear-gradient(to right, #d400ff, #ff0000);
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
@@ -325,12 +324,12 @@
             cursor: pointer;
             font-size: 1rem;
         }
-
+        
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 7px 15px rgba(0, 114, 255, 0.4);
         }
-
+        
         /* Footer */
         footer {
             background-color: rgba(10, 10, 20, 0.95);
@@ -339,31 +338,31 @@
             margin-top: 80px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .footer-content {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 40px;
         }
-
+        
         .footer-section {
             flex: 1;
             min-width: 250px;
         }
-
+        
         .footer-section h3 {
             font-size: 1.4rem;
             margin-bottom: 25px;
             color: #00c6ff;
         }
-
+        
         .footer-section p {
             margin-bottom: 15px;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
         }
-
+        
         .footer-section a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
@@ -371,12 +370,12 @@
             display: block;
             margin-bottom: 10px;
         }
-
+        
         .footer-section a:hover {
             color: #00c6ff;
             transform: translateX(5px);
         }
-
+        
         .copyright {
             text-align: center;
             margin-top: 50px;
@@ -385,24 +384,24 @@
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
         }
-
+        
         /* Seção Hero */
         .hero {
             padding: 120px 0 80px;
             text-align: center;
             position: relative;
         }
-
+        
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #ff0000, #9000ff);
+            background: linear-gradient(to right, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             line-height: 1.2;
         }
-
+        
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
@@ -410,7 +409,7 @@
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.7;
         }
-
+        
         /* Botão de ação principal */
         .cta-button {
             display: inline-block;
@@ -426,12 +425,12 @@
             border: none;
             cursor: pointer;
         }
-
+        
         .cta-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 30px rgba(0, 114, 255, 0.5);
         }
-
+        
         /* Controles do vídeo */
         .video-controls {
             position: fixed;
@@ -441,7 +440,7 @@
             display: flex;
             gap: 10px;
         }
-
+        
         .video-btn {
             width: 50px;
             height: 50px;
@@ -456,13 +455,13 @@
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
-
+        
         .video-btn:hover {
             background: rgba(0, 198, 255, 0.2);
             border-color: #00c6ff;
             transform: scale(1.1);
         }
-
+        
         /* Mensagem quando não há resultados */
         .no-results {
             text-align: center;
@@ -474,24 +473,24 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
         }
-
+        
         .no-results i {
             font-size: 4rem;
             color: rgba(255, 255, 255, 0.1);
             margin-bottom: 25px;
         }
-
+        
         .no-results h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
             color: #fff;
         }
-
+        
         /* Estilo para categoria oculta */
         .category.hidden {
             display: none;
         }
-
+        
         /* Destaque para termos de busca */
         .highlight {
             background-color: rgba(255, 235, 59, 0.3);
@@ -499,169 +498,159 @@
             border-radius: 3px;
             color: #ffeb3b;
         }
-
+        
         /* Responsividade */
         @media (max-width: 1200px) {
             .hero h1 {
                 font-size: 3rem;
             }
-
+            
             .grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
         }
-
+        
         @media (max-width: 992px) {
             .header-content {
                 flex-direction: column;
                 gap: 20px;
             }
-
+            
             .search-container {
                 max-width: 100%;
                 margin: 15px 0;
                 min-width: 100%;
             }
-
+            
             .hero {
                 padding: 100px 0 60px;
             }
-
+            
             .hero h1 {
                 font-size: 2.7rem;
             }
-
+            
             .hero p {
                 font-size: 1.2rem;
             }
-
+            
             .category {
                 padding: 25px;
             }
-
+            
             .category-title {
                 font-size: 1.9rem;
             }
         }
-
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.3rem;
             }
-
+            
             .hero p {
                 font-size: 1.1rem;
             }
-
+            
             .category-title {
                 font-size: 1.7rem;
             }
-
+            
             .results-count {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
-
+            
             .footer-content {
                 flex-direction: column;
                 gap: 40px;
             }
-
+            
             .video-controls {
                 bottom: 20px;
                 right: 20px;
             }
-
+            
             .video-btn {
                 width: 45px;
                 height: 45px;
             }
         }
-
+        
         @media (max-width: 576px) {
             .hero {
                 padding: 80px 0 50px;
             }
-
+            
             .hero h1 {
                 font-size: 2rem;
             }
-
+            
             .hero p {
                 font-size: 1rem;
             }
-
+            
             .cta-button {
                 padding: 14px 30px;
                 font-size: 1.1rem;
             }
-
+            
             .category {
                 padding: 20px;
                 margin-bottom: 70px;
             }
-
+            
             .category-title {
                 font-size: 1.5rem;
             }
-
+            
             .grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
-
+            
             .card {
                 max-width: 100%;
             }
-
+            
             .preview {
                 height: 200px;
             }
-
+            
             .container {
                 padding: 0 15px;
             }
         }
-
+        
         /* Animações */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .category,
-        .card,
-        .hero,
-        .results-count {
+        
+        .category, .card, .hero, .results-count {
             animation: fadeIn 0.6s ease-out;
         }
-
+        
         /* Scrollbar personalizada */
         ::-webkit-scrollbar {
             width: 10px;
         }
-
+        
         ::-webkit-scrollbar-track {
             background: rgba(26, 26, 46, 0.5);
         }
-
+        
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, #00c6ff, #0072ff);
             border-radius: 5px;
         }
-
+        
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(to bottom, #00b4e6, #0066cc);
         }
-
+        
         /* Filtro de categoria */
         .category-filters {
             display: flex;
@@ -670,7 +659,7 @@
             margin-bottom: 40px;
             justify-content: center;
         }
-
+        
         .category-filter {
             padding: 10px 20px;
             background: rgba(255, 255, 255, 0.05);
@@ -681,13 +670,13 @@
             transition: all 0.3s ease;
             font-weight: 500;
         }
-
+        
         .category-filter:hover {
             background: rgba(0, 198, 255, 0.1);
             color: #00c6ff;
             border-color: #00c6ff;
         }
-
+        
         .category-filter.active {
             background: linear-gradient(to right, #00c6ff, #0072ff);
             color: white;
@@ -695,17 +684,14 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Vídeo de fundo -->
     <video id="background-video" autoplay muted loop playsinline>
-        <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-abstract-geometric-design-background-33371-large.mp4"
-            type="video/mp4">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-geometric-design-background-33371-large.mp4" type="video/mp4">
         Seu navegador não suporta vídeos HTML5.
     </video>
     <div class="video-overlay"></div>
-
+    
     <!-- Controles do vídeo -->
     <div class="video-controls">
         <button class="video-btn" id="playPauseBtn" title="Play/Pause">
@@ -715,381 +701,373 @@
             <i class="fas fa-volume-mute"></i>
         </button>
     </div>
-
+    
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-palette"></i>
-                <div>DEV<span>RUBY</span></div>
+                <div>Template<span>PRO</span></div>
             </div>
-
+            
             <div class="search-container">
                 <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-box" id="searchBox"
-                    placeholder="Buscar por categoria, modelo ou palavra-chave...">
+                <input type="text" class="search-box" id="searchBox" placeholder="Buscar por categoria, modelo ou palavra-chave...">
                 <div class="search-results" id="searchResults"></div>
             </div>
-
+            
             <a href="#contact" class="cta-button">Solicitar Orçamento</a>
         </div>
     </header>
-
+    
     <!-- Seção Hero -->
     <section class="hero">
         <div class="container">
             <h1>Catálogo de Templates Profissionais</h1>
-            <p>Encontre o modelo ideal para o seu negócio entre mais de 40 opções organizadas por categoria. Design
-                premium, totalmente responsivo e pronto para uso.</p>
+            <p>Encontre o modelo ideal para o seu negócio entre mais de 40 opções organizadas por categoria. Design premium, totalmente responsivo e pronto para uso.</p>
             <a href="#categories" class="cta-button">Explorar Catálogo</a>
         </div>
     </section>
-
+    
     <!-- Filtros de categoria -->
     <div class="container">
         <div class="category-filters" id="categoryFilters">
             <!-- Filtros serão gerados via JavaScript -->
         </div>
     </div>
-
+    
     <!-- Conteúdo principal -->
     <main class="container" id="categories">
         <div class="results-count">
             <div>
-                <span id="totalCategories">10</span> categorias •
+                <span id="totalCategories">10</span> categorias • 
                 <span id="totalTemplates">40</span> modelos disponíveis
             </div>
             <div id="searchSummary">Mostrando todos os resultados</div>
         </div>
-
+        
         <!-- Categoria 1 -->
         <section class="category" data-category="empresas-servicos" data-index="1">
             <h2 class="category-title">Empresas & Serviços</h2>
             <p class="category-subtitle">Sites institucionais profissionais para todos os tipos de negócios</p>
-
+            
             <div class="grid">
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 01</span>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1415&q=80"
-                            alt="Empresa Clássica" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1415&q=80" alt="Empresa Clássica" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Empresa Clássica</h3>
-                        <p>Ideal para prestadores de serviço, com seções para missão, visão, valores e portfólio de
-                            trabalhos.</p>
-                        <button class="btn preview-btn" data-title="Empresa Clássica"
-                            data-category="Empresas & Serviços">Ver prévia</button>
+                        <p>Ideal para prestadores de serviço, com seções para missão, visão, valores e portfólio de trabalhos.</p>
+                        <button class="btn preview-btn" data-title="Empresa Clássica" data-category="Empresas & Serviços">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 02</span>
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80"
-                            alt="Empresa Moderna" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="Empresa Moderna" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Empresa Moderna</h3>
-                        <p>Visual clean e institucional com foco em usabilidade e apresentação de dados corporativos.
-                        </p>
-                        <button class="btn preview-btn" data-title="Empresa Moderna"
-                            data-category="Empresas & Serviços">Ver prévia</button>
+                        <p>Visual clean e institucional com foco em usabilidade e apresentação de dados corporativos.</p>
+                        <button class="btn preview-btn" data-title="Empresa Moderna" data-category="Empresas & Serviços">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 03</span>
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
-                            alt="Startup" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Startup" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Startup</h3>
                         <p>Foco em tecnologia e inovação, com design dinâmico e seções para investidores e notícias.</p>
-                        <button class="btn preview-btn" data-title="Startup" data-category="Empresas & Serviços">Ver
-                            prévia</button>
+                        <button class="btn preview-btn" data-title="Startup" data-category="Empresas & Serviços">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 04</span>
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Consultoria" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Consultoria" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Consultoria</h3>
-                        <p>Autoridade e credibilidade para consultores, com apresentação de cases e formulário de
-                            contato qualificado.</p>
-                        <button class="btn preview-btn" data-title="Consultoria" data-category="Empresas & Serviços">Ver
-                            prévia</button>
+                        <p>Autoridade e credibilidade para consultores, com apresentação de cases e formulário de contato qualificado.</p>
+                        <button class="btn preview-btn" data-title="Consultoria" data-category="Empresas & Serviços">Ver prévia</button>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Categoria 2 -->
         <section class="category" data-category="restaurantes-lanchonetes" data-index="2">
             <h2 class="category-title">Restaurantes & Lanchonetes</h2>
             <p class="category-subtitle">Sites apetitosos para o seu negócio gastronômico</p>
-
+            
             <div class="grid">
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 01</span>
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Cardápio Digital" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Cardápio Digital" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Cardápio Digital</h3>
                         <p>Apresente seus pratos com fotos de alta qualidade e integração com sistemas de delivery.</p>
-                        <button class="btn preview-btn" data-title="Cardápio Digital"
-                            data-category="Restaurantes & Lanchonetes">Ver prévia</button>
+                        <button class="btn preview-btn" data-title="Cardápio Digital" data-category="Restaurantes & Lanchonetes">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 02</span>
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
-                            alt="Delivery" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Delivery" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Delivery</h3>
-                        <p>Foco total em pedidos online com cardápio organizado por categorias e carrinho de compras.
-                        </p>
-                        <button class="btn preview-btn" data-title="Delivery"
-                            data-category="Restaurantes & Lanchonetes">Ver prévia</button>
+                        <p>Foco total em pedidos online com cardápio organizado por categorias e carrinho de compras.</p>
+                        <button class="btn preview-btn" data-title="Delivery" data-category="Restaurantes & Lanchonetes">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 03</span>
-                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Restaurante Premium" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Restaurante Premium" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Restaurante Premium</h3>
-                        <p>Design sofisticado para estabelecimentos de alto padrão, com reservas online e galeria de
-                            ambientes.</p>
-                        <button class="btn preview-btn" data-title="Restaurante Premium"
-                            data-category="Restaurantes & Lanchonetes">Ver prévia</button>
+                        <p>Design sofisticado para estabelecimentos de alto padrão, com reservas online e galeria de ambientes.</p>
+                        <button class="btn preview-btn" data-title="Restaurante Premium" data-category="Restaurantes & Lanchonetes">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 04</span>
-                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1381&q=80"
-                            alt="Fast Food" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1381&q=80" alt="Fast Food" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Fast Food</h3>
-                        <p>Layout dinâmico e colorido, ideal para redes de lanchonetes com cardápio prático e promoções.
-                        </p>
-                        <button class="btn preview-btn" data-title="Fast Food"
-                            data-category="Restaurantes & Lanchonetes">Ver prévia</button>
+                        <p>Layout dinâmico e colorido, ideal para redes de lanchonetes com cardápio prático e promoções.</p>
+                        <button class="btn preview-btn" data-title="Fast Food" data-category="Restaurantes & Lanchonetes">Ver prévia</button>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Categoria 3 -->
         <section class="category" data-category="casamentos" data-index="3">
             <h2 class="category-title">Casamentos</h2>
             <p class="category-subtitle">Celebre seu amor com um site personalizado para o grande dia</p>
-
+            
             <div class="grid">
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 01</span>
-                        <img src="../../img/CASAMENTO1.png"
-                            alt="Save the Date" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="Save the Date" loading="lazy">
                     </div>
                     <div class="content">
-                        <h3>MODELO 01</h3>
-                        <p>Anuncie sua data de casamento com estilo, compartilhe a localização e conte a história do
-                            casal.</p>
-                            <a href="https://drive.google.com/drive/folders/1_tKt8RyrTNxsO20n6CBLrAXWW3MCWCcz?usp=drive_link"> <button class="btn preview-btn" data-title="Save the Date" data-category="Casamentos">Ver
-                            prévia</button></a>
-                       
+                        <h3>Save the Date</h3>
+                        <p>Anuncie sua data de casamento com estilo, compartilhe a localização e conte a história do casal.</p>
+                        <button class="btn preview-btn" data-title="Save the Date" data-category="Casamentos">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 02</span>
-                        <img src="../../img/Captura de tela 2026-02-09 192922.png"
-                            alt="Página do Casal" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Página do Casal" loading="lazy">
                     </div>
                     <div class="content">
-                        <h3>MODELO 02</h3>
-                        <p>Compartilhe fotos, a história de como se conheceram e detalhes sobre a cerimônia e recepção.
-                        </p>
-                         <a href="https://drive.google.com/drive/folders/1_tKt8RyrTNxsO20n6CBLrAXWW3MCWCcz?usp=drive_link"> <button class="btn preview-btn" data-title="Save the Date" data-category="Casamentos">Ver
-                            prévia</button></a>
+                        <h3>Página do Casal</h3>
+                        <p>Compartilhe fotos, a história de como se conheceram e detalhes sobre a cerimônia e recepção.</p>
+                        <button class="btn preview-btn" data-title="Página do Casal" data-category="Casamentos">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 03</span>
-                        <img src="../../img/Captura de tela 2026-02-09 192807.png"
-                            alt="Lista de Presentes" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Lista de Presentes" loading="lazy">
                     </div>
                     <div class="content">
-                        <h3>LMODELO 03</h3>
+                        <h3>Lista de Presentes</h3>
                         <p>Organize sua lista de presentes de casamento com diversas opções de lojas e valores.</p>
-                         <a href="https://drive.google.com/drive/folders/1_tKt8RyrTNxsO20n6CBLrAXWW3MCWCcz?usp=drive_link"> <button class="btn preview-btn" data-title="Save the Date" data-category="Casamentos">Ver
-                            prévia</button></a>
+                        <button class="btn preview-btn" data-title="Lista de Presentes" data-category="Casamentos">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
-
+                    <div class="preview">
+                        <span class="badge">Modelo 04</span>
+                        <img src="https://images.unsplash.com/photo-1520854221256-17463ccb8b9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Confirmação de Presença" loading="lazy">
                     </div>
-                   
+                    <div class="content">
+                        <h3>Confirmação de Presença</h3>
+                        <p>Sistema de confirmação de presença online com controle de convidados e informações detalhadas.</p>
+                        <button class="btn preview-btn" data-title="Confirmação de Presença" data-category="Casamentos">Ver prévia</button>
+                    </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Categoria 4 -->
         <section class="category" data-category="negocio-generico" data-index="4">
             <h2 class="category-title">Seu Negócio</h2>
             <p class="category-subtitle">Modelos genéricos e multiuso para qualquer tipo de empreendimento</p>
-
+            
             <div class="grid">
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 01</span>
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Negócio Local" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Negócio Local" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Negócio Local</h3>
                         <p>Perfeito para pequenos negócios que querem presença online com informações essenciais.</p>
-                        <button class="btn preview-btn" data-title="Negócio Local" data-category="Seu Negócio">Ver
-                            prévia</button>
+                        <button class="btn preview-btn" data-title="Negócio Local" data-category="Seu Negócio">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 02</span>
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1415&q=80"
-                            alt="Multifuncional" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1415&q=80" alt="Multifuncional" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Multifuncional</h3>
                         <p>Template adaptável para diversos tipos de negócios, com layout flexível e moderno.</p>
-                        <button class="btn preview-btn" data-title="Multifuncional" data-category="Seu Negócio">Ver
-                            prévia</button>
+                        <button class="btn preview-btn" data-title="Multifuncional" data-category="Seu Negócio">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 03</span>
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80"
-                            alt="One Page" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="One Page" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>One Page</h3>
-                        <p>Site em página única com todas as informações importantes em um layout fluido e responsivo.
-                        </p>
-                        <button class="btn preview-btn" data-title="One Page" data-category="Seu Negócio">Ver
-                            prévia</button>
+                        <p>Site em página única com todas as informações importantes em um layout fluido e responsivo.</p>
+                        <button class="btn preview-btn" data-title="One Page" data-category="Seu Negócio">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 04</span>
-                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80"
-                            alt="Landing Page" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80" alt="Landing Page" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Landing Page</h3>
                         <p>Ideal para campanhas específicas, captação de leads ou lançamento de produtos.</p>
-                        <button class="btn preview-btn" data-title="Landing Page" data-category="Seu Negócio">Ver
-                            prévia</button>
+                        <button class="btn preview-btn" data-title="Landing Page" data-category="Seu Negócio">Ver prévia</button>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <!-- Categoria 5 -->
         <section class="category" data-category="festas-eventos" data-index="5">
             <h2 class="category-title">Festas & Eventos</h2>
             <p class="category-subtitle">Crie expectativa e organize seu evento com um site dedicado</p>
-
+            
             <div class="grid">
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 01</span>
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80"
-                            alt="Convite Digital" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="Convite Digital" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Convite Digital</h3>
-                        <p>Crie convites digitais interativos para seus eventos com confirmação de presença integrada.
-                        </p>
-                        <button class="btn preview-btn" data-title="Convite Digital"
-                            data-category="Festas & Eventos">Ver prévia</button>
+                        <p>Crie convites digitais interativos para seus eventos com confirmação de presença integrada.</p>
+                        <button class="btn preview-btn" data-title="Convite Digital" data-category="Festas & Eventos">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 02</span>
-                        <img src="https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Aniversário" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1511576661531-b34d7da5d0bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Aniversário" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Aniversário</h3>
                         <p>Celebre datas especiais com um site personalizado para festas de aniversário.</p>
-                        <button class="btn preview-btn" data-title="Aniversário" data-category="Festas & Eventos">Ver
-                            prévia</button>
+                        <button class="btn preview-btn" data-title="Aniversário" data-category="Festas & Eventos">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 03</span>
-                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Formatura" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Formatura" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Formatura</h3>
-                        <p>Compartilhe essa conquista com um site para a turma com galeria de fotos e informações do
-                            evento.</p>
-                        <button class="btn preview-btn" data-title="Formatura" data-category="Festas & Eventos">Ver
-                            prévia</button>
+                        <p>Compartilhe essa conquista com um site para a turma com galeria de fotos e informações do evento.</p>
+                        <button class="btn preview-btn" data-title="Formatura" data-category="Festas & Eventos">Ver prévia</button>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="preview">
                         <span class="badge">Modelo 04</span>
-                        <img src="https://images.unsplash.com/photo-1492684223066-dd23140edf6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                            alt="Evento Corporativo" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1492684223066-dd23140edf6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Evento Corporativo" loading="lazy">
                     </div>
                     <div class="content">
                         <h3>Evento Corporativo</h3>
                         <p>Profissional e sofisticado para congressos, workshops e eventos empresariais.</p>
-                        <button class="btn preview-btn" data-title="Evento Corporativo"
-                            data-category="Festas & Eventos">Ver prévia</button>
+                        <button class="btn preview-btn" data-title="Evento Corporativo" data-category="Festas & Eventos">Ver prévia</button>
                     </div>
                 </div>
             </div>
         </section>
-
+        
+        <!-- Mensagem quando não há resultados -->
+        <div class="no-results hidden" id="noResultsMessage">
+            <i class="fas fa-search"></i>
+            <h3>Nenhum resultado encontrado</h3>
+            <p>Tente buscar com outras palavras-chave ou explore todas as categorias.</p>
+        </div>
     </main>
-
-
-
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TemplatePRO</h3>
+                    <p>Catálogo de templates profissionais para todos os tipos de negócios. Mais de 40 modelos organizados por categoria.</p>
+                    <p><i class="fas fa-envelope"></i> contato@templatepro.com</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <a href="#categories">Catálogo Completo</a>
+                    <a href="#" class="budget-link">Solicitar Orçamento</a>
+                    <a href="#">Como Funciona</a>
+                    <a href="#">Portfólio</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Categorias Populares</h3>
+                    <a href="#" class="category-link" data-category="empresas-servicos">Empresas & Serviços</a>
+                    <a href="#" class="category-link" data-category="restaurantes-lanchonetes">Restaurantes</a>
+                    <a href="#" class="category-link" data-category="casamentos">Casamentos</a>
+                    <a href="#" class="category-link" data-category="festas-eventos">Festas & Eventos</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TemplatePRO. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
     <!-- Modal para preview -->
     <div id="previewModal" class="modal hidden">
         <div class="modal-content">
@@ -1118,9 +1096,9 @@
             </div>
         </div>
     </div>
-
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Elementos do DOM
             const searchBox = document.getElementById('searchBox');
             const searchResults = document.getElementById('searchResults');
@@ -1136,7 +1114,7 @@
             const previewModal = document.getElementById('previewModal');
             const closeModal = document.querySelector('.close-modal');
             const requestTemplateBtn = document.getElementById('requestTemplate');
-
+            
             // Dados para busca
             const templates = [];
             const categoryNames = {
@@ -1146,20 +1124,20 @@
                 'negocio-generico': 'Seu Negócio',
                 'festas-eventos': 'Festas & Eventos'
             };
-
+            
             // Inicializar dados dos templates
             function initializeTemplates() {
                 categories.forEach(category => {
                     const categoryId = category.getAttribute('data-category');
                     const categoryName = category.querySelector('.category-title').textContent;
                     const cards = category.querySelectorAll('.card');
-
+                    
                     cards.forEach(card => {
                         const title = card.querySelector('h3').textContent;
                         const description = card.querySelector('p').textContent;
                         const badge = card.querySelector('.badge').textContent;
                         const image = card.querySelector('img').src;
-
+                        
                         templates.push({
                             categoryId,
                             categoryName,
@@ -1172,32 +1150,32 @@
                     });
                 });
             }
-
+            
             // Inicializar filtros de categoria
             function initializeCategoryFilters() {
                 let filtersHTML = '<div class="category-filter active" data-category="all">Todos</div>';
-
+                
                 for (const [id, name] of Object.entries(categoryNames)) {
                     filtersHTML += `<div class="category-filter" data-category="${id}">${name}</div>`;
                 }
-
+                
                 categoryFilters.innerHTML = filtersHTML;
-
+                
                 // Adicionar eventos aos filtros
                 document.querySelectorAll('.category-filter').forEach(filter => {
-                    filter.addEventListener('click', function () {
+                    filter.addEventListener('click', function() {
                         const category = this.getAttribute('data-category');
-
+                        
                         // Atualizar filtro ativo
                         document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
                         this.classList.add('active');
-
+                        
                         // Filtrar categorias
                         filterCategories(category);
                     });
                 });
             }
-
+            
             // Filtrar categorias
             function filterCategories(categoryId) {
                 if (categoryId === 'all') {
@@ -1207,7 +1185,7 @@
                     updateResultsCount();
                     return;
                 }
-
+                
                 categories.forEach(category => {
                     if (category.getAttribute('data-category') === categoryId) {
                         category.classList.remove('hidden');
@@ -1215,29 +1193,29 @@
                         category.classList.add('hidden');
                     }
                 });
-
+                
                 updateResultsCount();
             }
-
+            
             // Atualizar contadores de resultados
             function updateResultsCount() {
                 const visibleCategories = document.querySelectorAll('.category:not(.hidden)');
                 const visibleTemplates = visibleCategories.length * 4; // 4 por categoria
-
+                
                 totalCategoriesElement.textContent = visibleCategories.length;
                 totalTemplatesElement.textContent = visibleTemplates;
-
+                
                 if (visibleCategories.length === categories.length) {
                     searchSummary.textContent = 'Mostrando todos os resultados';
                 } else {
                     searchSummary.textContent = `Mostrando ${visibleCategories.length} categorias`;
                 }
             }
-
+            
             // Função de busca
             function performSearch(searchTerm) {
                 const normalizedSearchTerm = searchTerm.toLowerCase().trim();
-
+                
                 // Se a busca estiver vazia, mostrar tudo
                 if (!normalizedSearchTerm) {
                     categories.forEach(category => {
@@ -1249,30 +1227,30 @@
                     updateResultsCount();
                     return;
                 }
-
+                
                 // Filtrar templates
                 const filteredTemplates = templates.filter(template => {
                     return template.title.toLowerCase().includes(normalizedSearchTerm) ||
-                        template.description.toLowerCase().includes(normalizedSearchTerm) ||
-                        template.categoryName.toLowerCase().includes(normalizedSearchTerm);
+                           template.description.toLowerCase().includes(normalizedSearchTerm) ||
+                           template.categoryName.toLowerCase().includes(normalizedSearchTerm);
                 });
-
+                
                 // Mostrar/ocultar categorias baseado nos resultados
                 const visibleCategories = new Set();
-
+                
                 filteredTemplates.forEach(template => {
                     visibleCategories.add(template.categoryId);
                 });
-
+                
                 // Esconder todas as categorias primeiro
                 categories.forEach(category => {
                     category.classList.add('hidden');
                 });
-
+                
                 // Mostrar apenas categorias com resultados
                 let foundCategories = 0;
                 let foundTemplates = filteredTemplates.length;
-
+                
                 visibleCategories.forEach(categoryId => {
                     const categoryElement = document.querySelector(`[data-category="${categoryId}"]`);
                     if (categoryElement) {
@@ -1280,7 +1258,7 @@
                         foundCategories++;
                     }
                 });
-
+                
                 // Mostrar mensagem se não houver resultados
                 if (visibleCategories.size === 0) {
                     noResultsMessage.classList.remove('hidden');
@@ -1289,31 +1267,31 @@
                     noResultsMessage.classList.add('hidden');
                     searchSummary.textContent = `${foundTemplates} modelos encontrados em ${foundCategories} categorias`;
                 }
-
+                
                 // Atualizar resultados da busca
                 updateSearchResults(filteredTemplates, normalizedSearchTerm);
             }
-
+            
             // Atualizar lista de resultados da busca
             function updateSearchResults(results, searchTerm) {
                 searchResults.innerHTML = '';
-
+                
                 if (results.length === 0 || !searchTerm) {
                     searchResults.style.display = 'none';
                     return;
                 }
-
+                
                 // Limitar a 10 resultados na lista
                 const limitedResults = results.slice(0, 10);
-
+                
                 // Adicionar cada resultado à lista
                 limitedResults.forEach(result => {
                     const resultItem = document.createElement('div');
                     resultItem.className = 'search-result-item';
-
+                    
                     // Destacar o termo de busca no título
                     const highlightedTitle = highlightSearchTerm(result.title, searchTerm);
-
+                    
                     resultItem.innerHTML = `
                         <i class="fas fa-th-large"></i>
                         <div>
@@ -1321,25 +1299,25 @@
                             <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.6);">${result.categoryName} • ${result.badge}</div>
                         </div>
                     `;
-
+                    
                     // Rolar para a categoria quando clicar no resultado
-                    resultItem.addEventListener('click', function () {
+                    resultItem.addEventListener('click', function() {
                         const categoryElement = result.element;
                         categoryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
+                        
                         // Destacar temporariamente a categoria
                         categoryElement.style.boxShadow = '0 0 0 3px rgba(0, 198, 255, 0.5)';
                         setTimeout(() => {
                             categoryElement.style.boxShadow = '';
                         }, 2000);
-
+                        
                         searchResults.style.display = 'none';
                         searchBox.value = '';
                     });
-
+                    
                     searchResults.appendChild(resultItem);
                 });
-
+                
                 // Adicionar "ver todos" se houver mais resultados
                 if (results.length > 10) {
                     const seeAllItem = document.createElement('div');
@@ -1350,27 +1328,27 @@
                             <strong>Ver todos os ${results.length} resultados</strong>
                         </div>
                     `;
-                    seeAllItem.addEventListener('click', function () {
+                    seeAllItem.addEventListener('click', function() {
                         searchResults.style.display = 'none';
                     });
                     searchResults.appendChild(seeAllItem);
                 }
-
+                
                 searchResults.style.display = 'block';
             }
-
+            
             // Destacar termo de busca no texto
             function highlightSearchTerm(text, term) {
                 if (!term) return text;
-
+                
                 const regex = new RegExp(`(${term})`, 'gi');
                 return text.replace(regex, '<span class="highlight">$1</span>');
             }
-
+            
             // Controles do vídeo
             function initializeVideoControls() {
                 // Play/Pause
-                playPauseBtn.addEventListener('click', function () {
+                playPauseBtn.addEventListener('click', function() {
                     if (backgroundVideo.paused) {
                         backgroundVideo.play();
                         this.innerHTML = '<i class="fas fa-pause"></i>';
@@ -1379,9 +1357,9 @@
                         this.innerHTML = '<i class="fas fa-play"></i>';
                     }
                 });
-
+                
                 // Som
-                soundBtn.addEventListener('click', function () {
+                soundBtn.addEventListener('click', function() {
                     if (backgroundVideo.muted) {
                         backgroundVideo.muted = false;
                         this.innerHTML = '<i class="fas fa-volume-up"></i>';
@@ -1390,119 +1368,119 @@
                         this.innerHTML = '<i class="fas fa-volume-mute"></i>';
                     }
                 });
-
+                
                 // Atualizar ícone quando o vídeo for pausado/play por outros meios
-                backgroundVideo.addEventListener('play', function () {
+                backgroundVideo.addEventListener('play', function() {
                     playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
                 });
-
-                backgroundVideo.addEventListener('pause', function () {
+                
+                backgroundVideo.addEventListener('pause', function() {
                     playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
                 });
             }
-
+            
             // Modal de preview
             function initializePreviewModal() {
                 // Botões de preview
                 document.querySelectorAll('.preview-btn').forEach(button => {
-                    button.addEventListener('click', function () {
+                    button.addEventListener('click', function() {
                         const title = this.getAttribute('data-title');
                         const category = this.getAttribute('data-category');
                         const card = this.closest('.card');
                         const description = card.querySelector('p').textContent;
                         const image = card.querySelector('img').src;
-
+                        
                         // Preencher modal com dados
                         document.getElementById('modalTitle').textContent = `Prévia: ${title}`;
                         document.getElementById('modalTemplateName').textContent = title;
                         document.getElementById('modalCategory').textContent = `Categoria: ${category}`;
                         document.getElementById('modalDescription').textContent = description;
                         document.getElementById('modalImage').src = image;
-
+                        
                         // Mostrar modal
                         previewModal.classList.remove('hidden');
                         document.body.style.overflow = 'hidden';
                     });
                 });
-
+                
                 // Fechar modal
-                closeModal.addEventListener('click', function () {
+                closeModal.addEventListener('click', function() {
                     previewModal.classList.add('hidden');
                     document.body.style.overflow = 'auto';
                 });
-
+                
                 // Fechar modal ao clicar fora
-                window.addEventListener('click', function (event) {
+                window.addEventListener('click', function(event) {
                     if (event.target === previewModal) {
                         previewModal.classList.add('hidden');
                         document.body.style.overflow = 'auto';
                     }
                 });
-
+                
                 // Botão de solicitar template
-                requestTemplateBtn.addEventListener('click', function () {
+                requestTemplateBtn.addEventListener('click', function() {
                     const templateName = document.getElementById('modalTemplateName').textContent;
                     alert(`Solicitação enviada para o template: ${templateName}\n\nEm breve entraremos em contato para discutir os detalhes!`);
                     previewModal.classList.add('hidden');
                     document.body.style.overflow = 'auto';
                 });
             }
-
+            
             // Inicializar links do footer
             function initializeFooterLinks() {
                 // Links de categoria no footer
                 document.querySelectorAll('.category-link').forEach(link => {
-                    link.addEventListener('click', function (e) {
+                    link.addEventListener('click', function(e) {
                         e.preventDefault();
                         const categoryId = this.getAttribute('data-category');
                         const categoryElement = document.querySelector(`[data-category="${categoryId}"]`);
-
+                        
                         if (categoryElement) {
                             categoryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
+                            
                             // Ativar o filtro correspondente
                             document.querySelectorAll('.category-filter').forEach(f => f.classList.remove('active'));
                             document.querySelector(`.category-filter[data-category="${categoryId}"]`).classList.add('active');
-
+                            
                             // Filtrar para mostrar apenas esta categoria
                             filterCategories(categoryId);
                         }
                     });
                 });
-
+                
                 // Link de orçamento
-                document.querySelector('.budget-link').addEventListener('click', function (e) {
+                document.querySelector('.budget-link').addEventListener('click', function(e) {
                     e.preventDefault();
                     alert('Formulário de orçamento aberto! Em uma implementação real, isso abriria um formulário para o cliente preencher.');
                 });
             }
-
+            
             // Event listeners
-            searchBox.addEventListener('input', function () {
+            searchBox.addEventListener('input', function() {
                 performSearch(this.value);
             });
-
-            searchBox.addEventListener('focus', function () {
+            
+            searchBox.addEventListener('focus', function() {
                 if (this.value.trim()) {
                     performSearch(this.value);
                 }
             });
-
+            
             // Fechar resultados ao clicar fora
-            document.addEventListener('click', function (event) {
+            document.addEventListener('click', function(event) {
                 if (!searchBox.contains(event.target) && !searchResults.contains(event.target)) {
                     searchResults.style.display = 'none';
                 }
             });
-
+            
             // Botão de orçamento no header
-            document.querySelector('.cta-button').addEventListener('click', function (e) {
+            document.querySelector('.cta-button').addEventListener('click', function(e) {
                 if (this.getAttribute('href') === '#contact') {
                     e.preventDefault();
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                 }
             });
-
+            
             // Inicialização
             initializeTemplates();
             initializeCategoryFilters();
@@ -1510,7 +1488,7 @@
             initializePreviewModal();
             initializeFooterLinks();
             updateResultsCount();
-
+            
             // Detectar se o dispositivo é móvel para otimizar performance
             if ('ontouchstart' in window || navigator.maxTouchPoints) {
                 // Reduzir qualidade do vídeo em dispositivos móveis para melhor performance
@@ -1518,7 +1496,7 @@
             }
         });
     </script>
-
+    
     <style>
         /* Estilos para o modal */
         .modal {
@@ -1535,11 +1513,11 @@
             padding: 20px;
             backdrop-filter: blur(10px);
         }
-
+        
         .modal.hidden {
             display: none;
         }
-
+        
         .modal-content {
             background: rgba(26, 26, 46, 0.95);
             border-radius: 20px;
@@ -1551,7 +1529,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
-
+        
         .close-modal {
             position: absolute;
             top: 20px;
@@ -1562,11 +1540,11 @@
             transition: color 0.3s;
             z-index: 10;
         }
-
+        
         .close-modal:hover {
             color: #00c6ff;
         }
-
+        
         .modal-content h2 {
             padding: 30px 30px 20px;
             font-size: 2rem;
@@ -1575,58 +1553,58 @@
             background-clip: text;
             color: transparent;
         }
-
+        
         .modal-body {
             display: flex;
             flex-direction: column;
             padding: 0 30px 30px;
         }
-
+        
         .modal-preview {
             width: 100%;
             margin-bottom: 30px;
         }
-
+        
         .modal-preview img {
             width: 100%;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-
+        
         .modal-info h3 {
             font-size: 1.8rem;
             margin-bottom: 10px;
             color: white;
         }
-
+        
         .modal-info p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 20px;
             line-height: 1.6;
         }
-
+        
         .modal-features {
             margin-bottom: 30px;
         }
-
+        
         .modal-features h4 {
             color: #00c6ff;
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
-
+        
         .modal-features ul {
             list-style-type: none;
             padding-left: 0;
         }
-
+        
         .modal-features li {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 10px;
             padding-left: 25px;
             position: relative;
         }
-
+        
         .modal-features li:before {
             content: '✓';
             position: absolute;
@@ -1634,38 +1612,37 @@
             color: #00c6ff;
             font-weight: bold;
         }
-
+        
         @media (min-width: 992px) {
             .modal-body {
                 flex-direction: row;
                 gap: 40px;
             }
-
+            
             .modal-preview {
                 flex: 1;
                 margin-bottom: 0;
             }
-
+            
             .modal-info {
                 flex: 1;
             }
         }
-
+        
         @media (max-width: 768px) {
             .modal-content {
                 max-height: 95vh;
             }
-
+            
             .modal-content h2 {
                 font-size: 1.7rem;
                 padding: 25px 25px 15px;
             }
-
+            
             .modal-body {
                 padding: 0 25px 25px;
             }
         }
     </style>
 </body>
-
 </html>
