@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +13,13 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             overflow-x: hidden;
             color: #fff;
             line-height: 1.6;
         }
-        
+
         /* Container do vídeo de fundo */
         .video-background {
             position: fixed;
@@ -29,13 +30,13 @@
             z-index: -2;
             overflow: hidden;
         }
-        
+
         .video-background video {
             min-width: 100%;
             min-height: 100%;
             object-fit: cover;
         }
-        
+
         /* Overlay escuro sobre o vídeo */
         .video-overlay {
             position: fixed;
@@ -46,7 +47,7 @@
             background: rgba(0, 0, 0, 0.75);
             z-index: -1;
         }
-        
+
         /* Container principal */
         .container {
             width: 100%;
@@ -58,7 +59,7 @@
             padding: 20px;
             position: relative;
         }
-        
+
         /* Cabeçalho com logo */
         .header {
             position: absolute;
@@ -70,26 +71,26 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             display: flex;
             flex-direction: column;
         }
-        
+
         .logo-main {
             font-size: 28px;
             font-weight: 800;
             color: #e63946;
             letter-spacing: 1px;
         }
-        
+
         .logo-subtitle {
             font-size: 14px;
             color: #ccc;
             letter-spacing: 2px;
             margin-top: 2px;
         }
-        
+
         .dashboard-badge {
             background-color: rgba(230, 57, 70, 0.2);
             color: #ff6b6b;
@@ -99,7 +100,7 @@
             font-weight: 600;
             border: 1px solid rgba(230, 57, 70, 0.4);
         }
-        
+
         /* Conteúdo principal */
         .main-content {
             max-width: 900px;
@@ -107,7 +108,7 @@
             padding: 20px;
             animation: fadeIn 1.2s ease-out;
         }
-        
+
         /* Título principal */
         .main-title {
             font-size: 3.5rem;
@@ -120,7 +121,7 @@
             color: transparent;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Descrição */
         .description {
             font-size: 1.4rem;
@@ -131,7 +132,7 @@
             margin-right: auto;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
+
         /* Container dos botões */
         .buttons-container {
             display: flex;
@@ -140,7 +141,7 @@
             gap: 25px;
             margin-top: 40px;
         }
-        
+
         /* Botões */
         .btn {
             padding: 18px 40px;
@@ -157,34 +158,34 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Botão principal */
         .btn-primary {
             background-color: #e63946;
             color: white;
             transform: translateY(0);
         }
-        
+
         .btn-primary:hover {
             background-color: #ff1e2d;
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(230, 57, 70, 0.4);
         }
-        
+
         /* Botão secundário */
         .btn-secondary {
             background-color: transparent;
             color: #fff;
             border: 2px solid rgba(255, 255, 255, 0.3);
         }
-        
+
         .btn-secondary:hover {
             background-color: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.5);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Badge do curso */
         .course-badge {
             background: linear-gradient(90deg, #e63946, #ff6b6b);
@@ -198,7 +199,7 @@
             box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
             animation: pulse 2s infinite;
         }
-        
+
         /* Rodapé */
         .footer {
             position: absolute;
@@ -209,76 +210,91 @@
             font-size: 0.9rem;
             padding: 0 20px;
         }
-        
+
         /* Animações */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
-        
+
         /* Responsividade */
         @media (max-width: 768px) {
             .main-title {
                 font-size: 2.5rem;
             }
-            
+
             .description {
                 font-size: 1.2rem;
             }
-            
+
             .btn {
                 min-width: 200px;
                 padding: 16px 30px;
             }
-            
+
             .header {
                 padding: 0 20px;
                 flex-direction: column;
                 gap: 15px;
                 align-items: flex-start;
             }
-            
+
             .dashboard-badge {
                 align-self: flex-start;
             }
         }
-        
+
         @media (max-width: 480px) {
             .main-title {
                 font-size: 2rem;
             }
-            
+
             .description {
                 font-size: 1rem;
             }
-            
+
             .buttons-container {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .btn {
                 width: 100%;
                 max-width: 300px;
             }
-            
+
             .logo-main {
                 font-size: 24px;
             }
-            
+
             .course-badge {
                 font-size: 0.9rem;
                 padding: 10px 20px;
                 text-align: center;
             }
         }
-        
+
         /* Efeitos de brilho tecnológico */
         .tech-glow {
             position: absolute;
@@ -288,27 +304,39 @@
             border-radius: 50%;
             z-index: -1;
         }
-        
+
         .glow-1 {
             top: 10%;
             left: 10%;
             animation: float 20s infinite linear;
         }
-        
+
         .glow-2 {
             bottom: 10%;
             right: 10%;
             animation: float 25s infinite linear reverse;
         }
-        
+
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, 30px) rotate(120deg); }
-            66% { transform: translate(-20px, 20px) rotate(240deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, 30px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Vídeo de fundo -->
     <div class="video-background">
@@ -319,14 +347,14 @@
             Seu navegador não suporta vídeos HTML5.
         </video>
     </div>
-    
+
     <!-- Overlay escuro sobre o vídeo -->
     <div class="video-overlay"></div>
-    
+
     <!-- Efeitos de brilho tecnológico -->
     <div class="tech-glow glow-1"></div>
     <div class="tech-glow glow-2"></div>
-    
+
     <!-- Container principal -->
     <div class="container">
         <!-- Cabeçalho com logo -->
@@ -337,74 +365,75 @@
             </div>
             <div class="dashboard-badge">Dashboard Financeiro</div>
         </div>
-        
+
         <!-- Conteúdo principal -->
         <div class="main-content">
             <h1 class="main-title">Escolha o seu próximo passo</h1>
-            <p class="description">Veja modelos prontos de sistemas e páginas ou contrate um sistema personalizado para sua empresa.</p>
-            
+            <p class="description">Veja modelos prontos de sistemas e páginas ou contrate um sistema personalizado para
+                sua empresa.</p>
+
             <!-- Container dos botões -->
             <div class="buttons-container">
-                <a href="" class="btn btn-secondary">Ver Modelos de Sistemas</a>
+                <a href="modelos/modelosativos.html" class="btn btn-secondary">Ver Modelos de Sistemas</a>
                 <a href="https://wa.me/5511974793895?text=Ol%C3%A1%2C%20vi%20seu%20an%C3%BAncio%20e%20gostaria%20de%20saber%20mais%20sobre%20personalizar%20um%20site%20ou%20sistema%20para%20mim.
 " class="btn btn-primary">Contratar um Sistema</a>
             </div>
-            
-          
+
+
         </div>
-        
+
         <!-- Rodapé -->
         <div class="footer">
             <p>Contrate um sistema para sua empresa</p>
         </div>
     </div>
-    
+
     <script>
         // Script para garantir que o vídeo de fundo funcione corretamente em todos os navegadores
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const video = document.querySelector('video');
-            
+
             // Forçar o autoplay em dispositivos móveis
-            video.play().catch(function(error) {
+            video.play().catch(function (error) {
                 console.log("Autoplay não permitido, tentando com mute:");
                 video.muted = true;
                 video.play();
             });
-            
+
             // Adicionar efeito de interação nos botões
             const buttons = document.querySelectorAll('.btn');
-            
+
             buttons.forEach(button => {
                 // Efeito de clique
-                button.addEventListener('mousedown', function() {
+                button.addEventListener('mousedown', function () {
                     this.style.transform = 'translateY(-2px)';
                 });
-                
-                button.addEventListener('mouseup', function() {
+
+                button.addEventListener('mouseup', function () {
                     this.style.transform = 'translateY(-5px)';
                 });
-                
-                button.addEventListener('mouseleave', function() {
+
+                button.addEventListener('mouseleave', function () {
                     this.style.transform = 'translateY(0)';
                 });
             });
-            
+
             // Simular redirecionamento (para demonstração)
             buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
+                button.addEventListener('click', function (e) {
                     // Em ambiente real, remover este código e deixar os links funcionarem normalmente
-                    if(this.getAttribute('href') === 'modelos.html' || this.getAttribute('href') === 'contratar.html') {
+                    if (this.getAttribute('href') === 'modelos.html' || this.getAttribute('href') === 'contratar.html') {
                         e.preventDefault();
                         alert(`Em um ambiente real, você seria redirecionado para: ${this.getAttribute('href')}\n\nEsta é apenas uma demonstração da landing page.`);
                     }
                 });
             });
-            
+
             // Efeito de digitação para o título (opcional)
             const title = document.querySelector('.main-title');
             const originalText = title.textContent;
             title.textContent = '';
-            
+
             let i = 0;
             function typeWriter() {
                 if (i < originalText.length) {
@@ -413,10 +442,11 @@
                     setTimeout(typeWriter, 50);
                 }
             }
-            
+
             // Iniciar efeito de digitação após 0.5 segundos
             setTimeout(typeWriter, 500);
         });
     </script>
 </body>
+
 </html>
