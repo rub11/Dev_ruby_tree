@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiências Extraordinárias | Festas & Eventos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vibrant-purple: #8a2be2;
+            --electric-orange: #ff6b35;
+            --hot-pink: #ff3e80;
+            --sunny-yellow: #ffd166;
+            --neon-green: #06d6a0;
+            --deep-blue: #118ab2;
+            --dark-bg: #0a0a0f;
+            --light-bg: #f8f9fa;
+            --text-light: #ffffff;
+            --text-dark: #1a1a1a;
+            --shadow-glow: 0 0 30px rgba(138, 43, 226, 0.4);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            text-transform: uppercase;
+            background: linear-gradient(45deg, var(--hot-pink), var(--vibrant-purple), var(--electric-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--hot-pink), var(--electric-orange));
+            border-radius: 5px;
+        }
+
+        h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: clamp(1.1rem, 2vw, 1.2rem);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 4vw, 3rem);
+        }
+
+        section {
+            padding: clamp(4rem, 8vw, 8rem) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: clamp(1rem, 2vw, 1.3rem) clamp(2rem, 4vw, 3rem);
+            background: linear-gradient(45deg, var(--electric-orange), var(--hot-pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: var(--shadow-glow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--vibrant-purple), var(--electric-orange));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        .btn:hover:before {
+            opacity: 1;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 15px 50px rgba(37, 211, 102, 0.6);
+        }
+
+        .btn-large {
+            padding: clamp(1.2rem, 2.5vw, 1.5rem) clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        /* WhatsApp Fixed Button */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+        }
+
+        .whatsapp-fixed:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.7);
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            border-bottom: 2px solid var(--vibrant-purple);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--hot-pink), var(--vibrant-purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(1.5rem, 3vw, 3rem);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--hot-pink), var(--electric-orange));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 62, 128, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 107, 53, 0.2) 0%, transparent 50%);
+            z-index: -2;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            margin-bottom: 3rem;
+            max-width: 900px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Events Section */
+        .events {
+            background-color: rgba(10, 10, 15, 0.9);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+            border-radius: 20px;
+            padding: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--hot-pink);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .event-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--vibrant-purple), var(--electric-orange));
+        }
+
+        .event-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--vibrant-purple), var(--hot-pink));
+            color: white;
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: rgba(20, 20, 30, 0.9);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-top: 3rem;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .experience-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: transparent;
+            background: linear-gradient(45deg, var(--hot-pink), var(--electric-orange));
+            -webkit-background-clip: text;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: rgba(10, 10, 15, 0.9);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: rgba(20, 20, 30, 0.9);
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--electric-orange), var(--hot-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--vibrant-purple), var(--deep-blue));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2:after {
+            background: white;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: rgba(10, 10, 15, 0.9);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question h4 {
+            margin: 0;
+            color: white;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(5, 5, 10, 0.95);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--hot-pink);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--vibrant-purple), var(--hot-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+            padding: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: rgba(20, 20, 30, 0.95);
+            border-radius: 20px;
+            width: min(95%, 1000px);
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+            border: 2px solid var(--vibrant-purple);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(90deg, var(--vibrant-purple), var(--hot-pink));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .modal-header h3 {
+            margin-bottom: 0;
+            color: white;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 0;
+            text-align: center;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(10, 10, 15, 0.98);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                text-align: center;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+            }
+            
+            .whatsapp-fixed {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .events-grid,
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .event-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .event-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+            
+            .whatsapp-fixed {
+                bottom: 15px;
+                right: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            
+            h1 {
+                font-size: clamp(2.5rem, 7vw, 3.5rem);
+            }
+            
+            h2 {
+                font-size: clamp(2rem, 6vw, 2.5rem);
+            }
+        }
+
+        /* Performance Optimizations */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .gallery-item img {
+            will-change: transform;
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .gallery-item:hover,
+            .event-card:hover,
+            .btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20conversar%20sobre%20um%20evento%20extraordinário!" 
+       target="_blank" 
+       class="whatsapp-fixed"
+       aria-label="Conversar no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-icon">E!</div>
+                    <span>Experiências Extraordinárias</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#events">Eventos</a></li>
+                    <li><a href="#experience">Experiência</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#how-it-works">Como Funciona</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#cta" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h1>Seu evento não pode ser comum</h1>
+            <p>Festas, eventos corporativos e experiências memoráveis que impressionam e transformam momentos em histórias.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20um%20evento%20que%20não%20seja%20comum!" 
+                   target="_blank" 
+                   class="btn btn-large btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                </a>
+                <a href="#events" class="btn btn-large">
+                    <i class="fas fa-sparkles"></i> Ver Eventos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h2>Tipos de Eventos</h2>
+            <p class="section-subtitle">Criamos experiências únicas para cada tipo de celebração. Seu evento merece ser extraordinário.</p>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-champagne-glasses"></i>
+                    </div>
+                    <h3>Festas</h3>
+                    <p>Aniversários, casamentos, formaturas e celebrações que merecem ser épicas. Do conceito à execução, criamos a festa dos seus sonhos.</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Eventos Corporativos</h3>
+                    <p>Conferências, lançamentos, team buildings e festas de fim de ano que impressionam clientes e motivam equipes.</p>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Celebrações Especiais</h3>
+                    <p>Inaugurações, noivados, aniversários de empresas e eventos temáticos que criam memórias para a vida toda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h2>Experiência que Entregamos</h2>
+            <p class="section-subtitle">Não organizamos eventos. Criamos experiências que as pessoas nunca esquecem.</p>
+            
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <div class="experience-number">01</div>
+                    <h3>Planejamento Completo</h3>
+                    <p>Do conceito inicial aos mínimos detalhes, cuidamos de tudo para que você só precise aproveitar.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-number">02</div>
+                    <h3>Criatividade Ilimitada</h3>
+                    <p>Ideias fora da caixa que transformam espaços comuns em ambientes extraordinários.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-number">03</div>
+                    <h3>Organização Perfeita</h3>
+                    <p>Logística impecável, cronograma preciso e execução sem falhas. Tudo sob controle.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-number">04</div>
+                    <h3>Execução Profissional</h3>
+                    <p>Equipe especializada que faz acontecer, mantendo a magia do evento do início ao fim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h2>Galeria de Momentos</h2>
+            <p class="section-subtitle">Algumas das experiências extraordinárias que já criamos. Sua história pode ser a próxima.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Festa de aniversário com decoração colorida e iluminação especial" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Festa de Aniversário Épica</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Evento corporativo elegante com iluminação moderna" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Evento Corporativo Premium</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Casamento elegante com decoração sofisticada e romântica" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Casamento Inesquecível</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Evento temático com decoração criativa e iluminação colorida" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Evento Temático Criativo</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h2>Como Funciona</h2>
+            <p class="section-subtitle">Um processo simples para criar experiências extraordinárias. Tudo começa com uma conversa.</p>
+            
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Você chama no WhatsApp</h3>
+                        <p>Entre em contato pelo WhatsApp e conte sua ideia. Respondemos em minutos para entender sua visão.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Entendemos sua ideia</h3>
+                        <p>Conversamos sobre todos os detalhes: tipo de evento, quantidade de pessoas, local, data e orçamento.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Planejamos o evento</h3>
+                        <p>Criamos um plano completo com conceito, decoração, catering, entretenimento e todos os detalhes.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Executamos tudo</h3>
+                        <p>Nossa equipe especializada transforma o plano em realidade. Você só precisa aproveitar o evento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h2>Seu evento começa com uma conversa</h2>
+            <p>Não perca tempo com formulários complicados. Converse diretamente com nossos especialistas pelo WhatsApp e transforme sua ideia em uma experiência extraordinária.</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20criar%20uma%20experiência%20extraordinária!" 
+               target="_blank" 
+               class="btn btn-large btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Chamar no WhatsApp agora
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="bg-pattern"></div>
+        <div class="container">
+            <h2>FAQ Rápido</h2>
+            <p class="section-subtitle">Perguntas frequentes sobre nossos serviços. Se tiver mais dúvidas, chame no WhatsApp!</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Como funciona o orçamento?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Conversamos pelo WhatsApp, entendemos suas necessidades e enviamos uma proposta personalizada em até 24h. Sem compromisso até você aprovar.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Com quanto tempo de antecedência preciso contratar?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Recomendamos pelo menos 30 dias para eventos maiores. Para eventos urgentes (até 7 dias), temos uma equipe especializada em execução rápida.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Vocês trabalham em qualquer local?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Trabalhamos em todo o Brasil. Para locais fora da nossa cidade base, incluímos custos de deslocamento no orçamento.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>O que está incluso no serviço completo?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Planejamento, conceito, decoração, catering (opcional), entretenimento (opcional), logística, coordenação no dia e suporte completo.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Posso contratar apenas parte dos serviços?</h4>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! Oferecemos serviços modulares. Você pode contratar apenas o planejamento, apenas a execução, ou qualquer combinação que preferir.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Experiências Extraordinárias</h4>
+                    <p>Transformamos ideias em eventos memoráveis. Criatividade, execução impecável e resultados que impressionam.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#events">Eventos</a></li>
+                        <li><a href="#experience">Experiência</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#how-it-works">Como Funciona</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Só WhatsApp</h4>
+                    <p>Nosso único canal de contato. Rápido, direto e eficiente.</p>
+                    <a href="https://wa.me/5511999999999" 
+                       target="_blank" 
+                       class="btn btn-whatsapp" 
+                       style="margin-top: 1rem;">
+                        <i class="fab fa-whatsapp"></i> Chamar agora
+                    </a>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Experiências Extraordinárias. Site de demonstração para empresa de festas e eventos. Todos os direitos reservados.</p>
+                <p style="margin-top: 1rem; font-size: 0.8rem;">Conteúdo fictício para fins demonstrativos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Momento Extraordinário</h3>
+                <button class="close-modal" id="closeGalleryModal" aria-label="Fechar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-image" src="" alt="Imagem ampliada do evento" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+            this.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Gallery modal functionality
+        const galleryModal = document.getElementById('galleryModal');
+        const closeGalleryModal = document.getElementById('closeGalleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imageUrl = this.getAttribute('data-image');
+                const title = this.querySelector('h4').textContent;
+                const altText = this.querySelector('img').getAttribute('alt');
+                
+                modalImage.src = imageUrl;
+                modalImage.alt = altText;
+                modalTitle.textContent = title;
+                galleryModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Add WhatsApp CTA to modal
+                setTimeout(() => {
+                    if (!document.querySelector('.modal-whatsapp')) {
+                        const whatsappCTA = document.createElement('a');
+                        whatsappCTA.href = 'https://wa.me/5511999999999?text=Olá!%20Vi%20essa%20imagem%20no%20site%20e%20quero%20um%20evento%20assim!';
+                        whatsappCTA.target = '_blank';
+                        whatsappCTA.className = 'btn btn-whatsapp modal-whatsapp';
+                        whatsappCTA.innerHTML = '<i class="fab fa-whatsapp"></i> Quero um evento assim!';
+                        whatsappCTA.style.position = 'absolute';
+                        whatsappCTA.style.bottom = '20px';
+                        whatsappCTA.style.left = '50%';
+                        whatsappCTA.style.transform = 'translateX(-50%)';
+                        whatsappCTA.style.zIndex = '2001';
+                        
+                        document.querySelector('.modal-body').appendChild(whatsappCTA);
+                    }
+                }, 500);
+            });
+        });
+        
+        closeGalleryModal.addEventListener('click', () => {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Remove WhatsApp CTA from modal
+            const modalWhatsapp = document.querySelector('.modal-whatsapp');
+            if (modalWhatsapp) {
+                modalWhatsapp.remove();
+            }
+        });
+        
+        // Close modal when clicking outside
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                const modalWhatsapp = document.querySelector('.modal-whatsapp');
+                if (modalWhatsapp) {
+                    modalWhatsapp.remove();
+                }
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && galleryModal.style.display === 'flex') {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                const modalWhatsapp = document.querySelector('.modal-whatsapp');
+                if (modalWhatsapp) {
+                    modalWhatsapp.remove();
+                }
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navContainer = document.querySelector('.nav-container');
+            if (window.scrollY > 50) {
+                navContainer.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.3)';
+                navContainer.style.borderBottomColor = 'var(--hot-pink)';
+            } else {
+                navContainer.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.2)';
+                navContainer.style.borderBottomColor = 'var(--vibrant-purple)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements to animate
+        document.querySelectorAll('.event-card, .experience-item, .step, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add WhatsApp parameter tracking
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            // Add UTM parameters for tracking
+            const currentUrl = encodeURIComponent(window.location.href);
+            const currentSource = 'website_demo';
+            
+            // Update WhatsApp links with tracking parameters
+            const originalHref = link.getAttribute('href');
+            if (originalHref && !originalHref.includes('utm_source')) {
+                const separator = originalHref.includes('?') ? '&' : '?';
+                const newHref = `${originalHref}${separator}utm_source=${currentSource}&utm_medium=whatsapp&utm_content=${currentUrl}`;
+                link.setAttribute('href', newHref);
+            }
+        });
+
+        // Performance optimization: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add animation to WhatsApp fixed button on scroll
+        let lastScrollTop = 0;
+        const whatsappFixed = document.querySelector('.whatsapp-fixed');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 300) {
+                // Scrolling down
+                whatsappFixed.style.transform = 'translateY(100px)';
+            } else {
+                // Scrolling up
+                whatsappFixed.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Auto-open first FAQ item on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstFaqItem = document.querySelector('.faq-item');
+            if (firstFaqItem) {
+                setTimeout(() => {
+                    firstFaqItem.classList.add('active');
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

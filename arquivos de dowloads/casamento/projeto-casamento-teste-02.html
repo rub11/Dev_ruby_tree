@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --warm-gray: #2d2d2d;
+            --off-white: #f0f0f0;
+            --light-beige: #e8e0d8;
+            --accent: #c7a17a;
+            --transition-slow: 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-medium: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-fast: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--off-white);
+            background-color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        h1, h2, h3, h4, h5, .chapter-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 5.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 3.8rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .large-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+        }
+
+        .section-divider {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 4rem 0;
+        }
+
+        /* Opening Scene */
+        .opening-scene {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .opening-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511984804822-e16ba72f5840?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: slowZoom 40s infinite alternate ease-in-out;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .opening-title {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s var(--transition-slow) 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .opening-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 4rem;
+            opacity: 0;
+            animation: fadeIn 2s var(--transition-slow) 1.5s forwards;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .begin-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--off-white);
+            padding: 1.2rem 3.5rem;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 2s var(--transition-slow) 2s forwards;
+        }
+
+        .begin-btn:hover {
+            background-color: rgba(199, 161, 122, 0.1);
+            letter-spacing: 5px;
+        }
+
+        .begin-btn:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .begin-btn:focus:after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(40, 40);
+                opacity: 0;
+            }
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.7;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.3; }
+        }
+
+        .scroll-hint span {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .scroll-hint i {
+            font-size: 1.5rem;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition-medium);
+            transform: translateY(-100%);
+        }
+
+        .nav-container.visible {
+            transform: translateY(0);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--off-white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--off-white);
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--off-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Chapter Sections */
+        .chapter-section {
+            padding: 10rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-section:nth-child(even) {
+            background-color: var(--dark-gray);
+        }
+
+        .chapter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 6rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(199, 161, 122, 0.3);
+        }
+
+        .chapter-number {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-title {
+            font-size: 4.5rem;
+            line-height: 1;
+            font-weight: 300;
+        }
+
+        .chapter-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .chapter-text {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .chapter-text.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .chapter-image {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .chapter-image.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .chapter-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .chapter-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.8) 100%);
+        }
+
+        /* Relationship Timer */
+        .relationship-timer {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .timer-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .timer-title {
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 4rem;
+        }
+
+        .timer-item {
+            text-align: center;
+        }
+
+        .timer-value {
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .timer-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+
+        .timer-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        /* The Great Day */
+        .great-day {
+            padding: 10rem 2rem;
+            text-align: center;
+            background-color: var(--black);
+        }
+
+        .great-day-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .great-day-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .date-display {
+            font-size: 4.5rem;
+            color: var(--accent);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-value {
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--off-white);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 1rem;
+            color: var(--accent);
+            font-weight: 300;
+        }
+
+        /* Location Section */
+        .location-section {
+            padding: 8rem 2rem;
+            background-color: var(--dark-gray);
+        }
+
+        .location-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .location-text h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .location-details {
+            margin-bottom: 3rem;
+        }
+
+        .location-detail {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .location-detail i {
+            color: var(--accent);
+            margin-right: 1.5rem;
+            margin-top: 5px;
+            font-size: 1.2rem;
+        }
+
+        .location-preview {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .location-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .location-preview:hover img {
+            transform: scale(1.05);
+        }
+
+        .preview-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: var(--transition-medium);
+        }
+
+        .preview-overlay:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .preview-overlay i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Weather Section */
+        .weather-section {
+            padding: 6rem 2rem;
+            text-align: center;
+            background-color: var(--black);
+        }
+
+        .weather-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .weather-icon {
+            font-size: 6rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .weather-text {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .weather-details {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            padding: 8rem 2rem;
+            background-color: var(--dark-gray);
+        }
+
+        .rsvp-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rsvp-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .rsvp-intro h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .rsvp-form {
+            background-color: rgba(0,0,0,0.3);
+            padding: 4rem;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 3rem;
+            margin-top: 1rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 0.8rem;
+            accent-color: var(--accent);
+        }
+
+        .recipient-selector {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .recipient-option {
+            flex: 1;
+            text-align: center;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .recipient-option:hover {
+            border-color: var(--accent);
+            background-color: rgba(199, 161, 122, 0.05);
+        }
+
+        .recipient-option.selected {
+            border-color: var(--accent);
+            background-color: rgba(199, 161, 122, 0.1);
+        }
+
+        .recipient-option i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .whatsapp-btn {
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid var(--accent);
+            color: var(--off-white);
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            margin-top: 3rem;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: rgba(199, 161, 122, 0.1);
+            letter-spacing: 5px;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+        }
+
+        /* Dress Code Section */
+        .dresscode-section {
+            padding: 8rem 2rem;
+            background-color: var(--black);
+        }
+
+        .dresscode-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dresscode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .dresscode-card {
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dresscode-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .dresscode-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .dresscode-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 3rem 2rem 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .dresscode-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        /* Final Section */
+        .final-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .final-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .final-quote {
+            font-size: 4.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 4rem;
+            max-width: 1000px;
+        }
+
+        .back-to-top {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--off-white);
+            padding: 1.2rem 3rem;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition-medium);
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(199, 161, 122, 0.1);
+            letter-spacing: 5px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--black);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 3rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-out;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background-color: var(--dark-gray);
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-header h3 {
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--off-white);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 500px;
+        }
+
+        .modal-map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-image {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            h1 {
+                font-size: 4.5rem;
+            }
+            
+            .chapter-title {
+                font-size: 3.8rem;
+            }
+            
+            .timer-grid {
+                gap: 2rem;
+            }
+            
+            .timer-value {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .chapter-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .location-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .modal-body {
+                grid-template-columns: 1fr;
+                height: 800px;
+            }
+            
+            .modal-map {
+                height: 400px;
+            }
+            
+            .modal-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.8rem;
+            }
+            
+            .chapter-title {
+                font-size: 3rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--black);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                gap: 2rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .chapter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            
+            .timer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+            
+            .countdown-container {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+            
+            .countdown-value {
+                font-size: 3rem;
+            }
+            
+            .final-quote {
+                font-size: 3rem;
+            }
+            
+            .rsvp-form {
+                padding: 3rem 2rem;
+            }
+            
+            .recipient-selector {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .chapter-section, .great-day, .location-section, .rsvp-section {
+                padding: 6rem 1.5rem;
+            }
+            
+            .opening-scene, .relationship-timer, .final-section {
+                padding: 0 1.5rem;
+            }
+            
+            .timer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .timer-value {
+                font-size: 3rem;
+            }
+            
+            .date-display {
+                font-size: 3rem;
+            }
+            
+            .countdown-value {
+                font-size: 2.5rem;
+            }
+            
+            .final-quote {
+                font-size: 2.5rem;
+            }
+            
+            .dresscode-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Opening Scene -->
+    <section class="opening-scene" id="opening">
+        <div class="opening-background"></div>
+        <h1 class="opening-title">Uma história que escolheu durar</h1>
+        <p class="opening-subtitle">O amor é a única história que nunca cansa de ser contada</p>
+        <button class="begin-btn" id="beginBtn">Começar a história</button>
+        <div class="scroll-hint">
+            <span>Deslizar</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="nav-container" id="navContainer">
+        <nav>
+            <a href="#" class="nav-logo">Nossa História</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#chapter1">Capítulo I</a></li>
+                <li><a href="#chapter2">Capítulo II</a></li>
+                <li><a href="#chapter3">Capítulo III</a></li>
+                <li><a href="#timer">Nosso Tempo</a></li>
+                <li><a href="#greatday">O Grande Dia</a></li>
+                <li><a href="#rsvp">Confirmação</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Chapter 1 -->
+    <section class="chapter-section" id="chapter1">
+        <div class="chapter-header">
+            <div>
+                <div class="chapter-number">Capítulo I</div>
+                <h2 class="chapter-title">O Encontro</h2>
+            </div>
+        </div>
+        <div class="chapter-content">
+            <div class="chapter-text" id="chapter1Text">
+                <p class="large-text">Tudo começou em um lugar comum, em um dia como qualquer outro. Mas o acaso, com sua sabedoria silenciosa, decidiu cruzar nossos caminhos.</p>
+                <p>Não foi um encontro de faíscas e fogos de artifício, mas de reconhecimento. Algo nos dizia, naquele instante, que aquela não era apenas mais uma conversa. Era o primeiro parágrafo de uma história que já estava sendo escrita há muito tempo.</p>
+                <p>Dois estranhos que, de repente, descobriram que não eram tão estranhos assim. Uma conversa que não queria acabar, risadas que ecoavam com familiaridade, e a certeza silenciosa de que algo significativo havia começado.</p>
+            </div>
+            <div class="chapter-image" id="chapter1Image">
+                <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="O Encontro">
+                <div class="image-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Chapter 2 -->
+    <section class="chapter-section" id="chapter2">
+        <div class="chapter-header">
+            <div>
+                <div class="chapter-number">Capítulo II</div>
+                <h2 class="chapter-title">O Sim</h2>
+            </div>
+        </div>
+        <div class="chapter-content">
+            <div class="chapter-image" id="chapter2Image">
+                <img src="https://images.unsplash.com/photo-1511984804822-e16ba72f5840?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="O Sim">
+                <div class="image-overlay"></div>
+            </div>
+            <div class="chapter-text" id="chapter2Text">
+                <p class="large-text">O "sim" que mudou tudo não foi pronunciado apenas uma vez, mas todos os dias, em cada escolha, em cada compromisso.</p>
+                <p>Foi um processo silencioso de construção - de confiança, de respeito, de aprendizado mútuo. Foi descobrir que amar não é encontrar a pessoa perfeita, mas aprender a ver a perfeição na pessoa que se escolhe.</p>
+                <p>O "sim" definitivo veio como uma confirmação do que já sabíamos: que queríamos escrever todos os próximos capítulos juntos. E que este "sim" seria apenas o primeiro de muitos que ainda estão por vir.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Chapter 3 -->
+    <section class="chapter-section" id="chapter3">
+        <div class="chapter-header">
+            <div>
+                <div class="chapter-number">Capítulo III</div>
+                <h2 class="chapter-title">O Para Sempre</h2>
+            </div>
+        </div>
+        <div class="chapter-content">
+            <div class="chapter-text" id="chapter3Text">
+                <p class="large-text">"Para sempre" não é uma promessa de dias fáceis, mas um compromisso de permanecer.</p>
+                <p>É a coragem de escolher, todos os dias, construir algo maior que nós mesmos. É entender que o amor não é um destino, mas uma jornada compartilhada - com seus altos e baixos, suas tempestades e seus dias de sol.</p>
+                <p>Este capítulo é sobre começar. Sobre transformar o "eu" e o "você" em "nós". Sobre escrever, juntos, uma história que valha a pena ser contada.</p>
+            </div>
+            <div class="chapter-image" id="chapter3Image">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="O Para Sempre">
+                <div class="image-overlay"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Relationship Timer -->
+    <section class="relationship-timer" id="timer">
+        <div class="timer-background"></div>
+        <h2 class="timer-title">Estamos escrevendo essa história há...</h2>
+        <div class="timer-grid">
+            <div class="timer-item">
+                <div class="timer-value" id="together-years">0</div>
+                <div class="timer-label">Anos</div>
+            </div>
+            <div class="timer-item">
+                <div class="timer-value" id="together-months">0</div>
+                <div class="timer-label">Meses</div>
+            </div>
+            <div class="timer-item">
+                <div class="timer-value" id="together-days">0</div>
+                <div class="timer-label">Dias</div>
+            </div>
+            <div class="timer-item">
+                <div class="timer-value" id="together-hours">0</div>
+                <div class="timer-label">Horas</div>
+            </div>
+        </div>
+        <p class="timer-quote">"O tempo não mede o amor, mas o amor dá sentido ao tempo."</p>
+    </section>
+
+    <!-- The Great Day -->
+    <section class="great-day" id="greatday">
+        <div class="great-day-content">
+            <h2 class="great-day-title">O próximo capítulo começa em...</h2>
+            <div class="date-display">15 de Junho de 2024</div>
+            
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-days">00</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="countdown-seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+            
+            <p class="large-text">Às 16 horas, na Capela Santa Cecília, daremos início ao nosso "para sempre".</p>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="location">
+        <div class="location-container">
+            <div class="location-text">
+                <h2>Onde nossa história continua</h2>
+                <p>Escolhemos um lugar que reflete a essência do nosso amor: sereno, atemporal e cercado de beleza natural.</p>
+                
+                <div class="location-details">
+                    <div class="location-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Chácara Primavera</h4>
+                            <p>Av. das Flores, 1234 - Jardim Primavera<br>São Paulo - SP</p>
+                        </div>
+                    </div>
+                    <div class="location-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horários</h4>
+                            <p>Cerimônia: 16:00<br>Recepção: 18:00</p>
+                        </div>
+                    </div>
+                    <div class="location-detail">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <h4>Informações</h4>
+                            <p>Estacionamento disponível no local<br>Traje: Social Elegante</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="begin-btn" id="openLocationModal">Explorar o Local</button>
+            </div>
+            
+            <div class="location-preview" id="locationPreview">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Local do Casamento">
+                <div class="preview-overlay">
+                    <i class="fas fa-expand-alt"></i>
+                    <span>Visualizar Local</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather-section" id="weather">
+        <div class="weather-container">
+            <i class="fas fa-sun weather-icon" id="weatherIcon"></i>
+            <p class="weather-text">"O céu também estará presente"</p>
+            <p>Previsão para o dia do casamento: um dia de sol suave e temperatura amena, perfeito para celebrar o amor ao ar livre.</p>
+            
+            <div class="weather-details">
+                <div>
+                    <h3>26°C</h3>
+                    <p>Temperatura máxima</p>
+                </div>
+                <div>
+                    <h3>Ensolarado</h3>
+                    <p>Condição climática</p>
+                </div>
+                <div>
+                    <h3>18°C</h3>
+                    <p>Temperatura mínima</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="rsvp-container">
+            <div class="rsvp-intro">
+                <h2>Você faz parte dessa história</h2>
+                <p class="large-text">Sua presença é o capítulo mais importante da nossa celebração. Confirme abaixo se estará conosco neste dia tão especial.</p>
+            </div>
+            
+            <div class="rsvp-form">
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" class="form-control" required placeholder="Seu nome completo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Quantidade de pessoas</label>
+                        <select id="guests" class="form-control" required>
+                            <option value="" disabled selected>Selecione a quantidade</option>
+                            <option value="1">1 pessoa (apenas eu)</option>
+                            <option value="2">2 pessoas</option>
+                            <option value="3">3 pessoas</option>
+                            <option value="4">4 pessoas</option>
+                            <option value="5+">5 ou mais pessoas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Confirmar presença</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="attend-yes" name="attendance" value="yes" required>
+                                <label for="attend-yes">Com certeza estarei lá</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="attend-no" name="attendance" value="no" required>
+                                <label for="attend-no">Infelizmente não poderei</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Enviar confirmação para</label>
+                        <div class="recipient-selector">
+                            <div class="recipient-option" id="recipientGroom">
+                                <i class="fas fa-male"></i>
+                                <span>Noivo</span>
+                            </div>
+                            <div class="recipient-option selected" id="recipientBride">
+                                <i class="fas fa-female"></i>
+                                <span>Noiva</span>
+                            </div>
+                        </div>
+                        <input type="hidden" id="recipient" value="bride">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem para os noivos (opcional)</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Deixe uma mensagem especial para os noivos..."></textarea>
+                    </div>
+                    
+                    <button type="button" class="whatsapp-btn" id="sendWhatsApp">
+                        <i class="fab fa-whatsapp"></i> Enviar Confirmação via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="dresscode-section" id="dresscode">
+        <div class="dresscode-container">
+            <h2>Traje / Dress Code</h2>
+            <p class="large-text">Para harmonizar com a atmosfera do nosso dia, sugerimos trajes sociais elegantes em tons neutros e suaves.</p>
+            
+            <div class="dresscode-grid">
+                <div class="dresscode-card">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" alt="Traje Feminino">
+                    <div class="dresscode-overlay">
+                        <h3>Elegância Feminina</h3>
+                        <p>Vestidos longos ou midi em tons suaves</p>
+                    </div>
+                </div>
+                
+                <div class="dresscode-card">
+                    <img src="https://images.unsplash.com/photo-1592878940766-53b56c57e4d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Traje Masculino">
+                    <div class="dresscode-overlay">
+                        <h3>Estilo Masculino</h3>
+                        <p>Traje social completo ou terno</p>
+                    </div>
+                </div>
+                
+                <div class="dresscode-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Cores Sugeridas">
+                    <div class="dresscode-overlay">
+                        <h3>Cores Sugeridas</h3>
+                        <p>Tons neutros, bege, marfim, cinza e azul-claro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section class="final-section" id="final">
+        <div class="final-background"></div>
+        <h2 class="final-quote">Algumas histórias merecem ser celebradas</h2>
+        <button class="back-to-top" id="backToTop">Voltar ao Início</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">Obrigado por fazer parte desta história. Mal podemos esperar para celebrar este capítulo especial ao seu lado.</p>
+        <p class="copyright">© 2024 Nossa História - Site criado como exemplo de site de casamento cinematográfico</p>
+    </footer>
+
+    <!-- Location Modal -->
+    <div class="modal" id="locationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Local do Casamento</h3>
+                <button class="close-modal" id="closeLocationModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe 
+                    class="modal-map" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197353421569!2d-46.65906932404408!3d-23.561354478799148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1682022621671!5m2!1spt-BR!2sbr" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2094&q=80" alt="Local do Casamento">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+            this.innerHTML = document.getElementById('navLinks').classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Begin button - scroll to first chapter
+        document.getElementById('beginBtn').addEventListener('click', function() {
+            document.getElementById('chapter1').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Navigation visibility on scroll
+        window.addEventListener('scroll', function() {
+            const navContainer = document.getElementById('navContainer');
+            if (window.scrollY > 100) {
+                navContainer.classList.add('visible');
+            } else {
+                navContainer.classList.remove('visible');
+            }
+        });
+
+        // Relationship timer
+        const relationshipStartDate = new Date('June 10, 2018 00:00:00').getTime();
+        
+        function updateRelationshipTimer() {
+            const now = new Date().getTime();
+            const timeTogether = now - relationshipStartDate;
+            
+            // Calculate years
+            const years = Math.floor(timeTogether / (1000 * 60 * 60 * 24 * 365.25));
+            
+            // Calculate months
+            const months = Math.floor((timeTogether % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+            
+            // Calculate days
+            const days = Math.floor((timeTogether % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+            
+            // Calculate hours
+            const hours = Math.floor((timeTogether % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            // Update DOM
+            document.getElementById('together-years').textContent = years;
+            document.getElementById('together-months').textContent = months;
+            document.getElementById('together-days').textContent = days;
+            document.getElementById('together-hours').textContent = hours;
+        }
+        
+        // Update relationship timer immediately and then every hour
+        updateRelationshipTimer();
+        setInterval(updateRelationshipTimer, 1000 * 60 * 60);
+
+        // Wedding countdown timer
+        const weddingDate = new Date('June 15, 2024 16:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+            
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.querySelector('.countdown-container').innerHTML = '<h3 style="font-size: 3rem; color: var(--accent);">O grande dia chegou!</h3>';
+            }
+        }
+        
+        // Update countdown immediately and then every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Weather simulation
+        function updateWeather() {
+            const hour = new Date().getHours();
+            const weatherIcon = document.getElementById('weatherIcon');
+            
+            // Change icon based on time of day
+            if (hour >= 6 && hour < 18) {
+                weatherIcon.className = 'fas fa-sun weather-icon';
+            } else {
+                weatherIcon.className = 'fas fa-moon weather-icon';
+            }
+        }
+        
+        updateWeather();
+
+        // Chapter animations on scroll
+        function animateChapters() {
+            const chapters = [
+                { text: document.getElementById('chapter1Text'), image: document.getElementById('chapter1Image') },
+                { text: document.getElementById('chapter2Text'), image: document.getElementById('chapter2Image') },
+                { text: document.getElementById('chapter3Text'), image: document.getElementById('chapter3Image') }
+            ];
+            
+            chapters.forEach((chapter, index) => {
+                const textPosition = chapter.text.getBoundingClientRect().top;
+                const imagePosition = chapter.image.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (textPosition < screenPosition) {
+                    chapter.text.classList.add('visible');
+                }
+                
+                if (imagePosition < screenPosition) {
+                    chapter.image.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateChapters);
+
+        // Location modal
+        const locationModal = document.getElementById('locationModal');
+        const openLocationModal = document.getElementById('openLocationModal');
+        const locationPreview = document.getElementById('locationPreview');
+        const closeLocationModal = document.getElementById('closeLocationModal');
+        
+        openLocationModal.addEventListener('click', () => {
+            locationModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        locationPreview.addEventListener('click', () => {
+            locationModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeLocationModal.addEventListener('click', () => {
+            locationModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        locationModal.addEventListener('click', (e) => {
+            if (e.target === locationModal) {
+                locationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Recipient selection for RSVP
+        const recipientGroom = document.getElementById('recipientGroom');
+        const recipientBride = document.getElementById('recipientBride');
+        const recipientField = document.getElementById('recipient');
+        
+        recipientGroom.addEventListener('click', () => {
+            recipientGroom.classList.add('selected');
+            recipientBride.classList.remove('selected');
+            recipientField.value = 'groom';
+        });
+        
+        recipientBride.addEventListener('click', () => {
+            recipientBride.classList.add('selected');
+            recipientGroom.classList.remove('selected');
+            recipientField.value = 'bride';
+        });
+
+        // WhatsApp RSVP functionality
+        document.getElementById('sendWhatsApp').addEventListener('click', function() {
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const guests = document.getElementById('guests').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked');
+            const message = document.getElementById('message').value.trim();
+            const recipient = document.getElementById('recipient').value;
+            
+            // Validation
+            if (!name) {
+                alert('Por favor, preencha seu nome.');
+                return;
+            }
+            
+            if (!guests) {
+                alert('Por favor, selecione a quantidade de pessoas.');
+                return;
+            }
+            
+            if (!attendance) {
+                alert('Por favor, selecione se vai comparecer ou não.');
+                return;
+            }
+            
+            // Phone numbers (example - replace with actual numbers in real use)
+            const phoneNumbers = {
+                groom: '5511999999999',
+                bride: '5511888888888'
+            };
+            
+            // Determine attendance text
+            const attendanceText = attendance.value === 'yes' 
+                ? 'Sim, com certeza estarei presente!' 
+                : 'Infelizmente não poderei comparecer.';
+            
+            // Construct message
+            let whatsappMessage = `Olá! Aqui é ${name}.%0A%0A`;
+            whatsappMessage += `Estou confirmando minha presença no seu casamento.%0A`;
+            whatsappMessage += `Status: ${attendanceText}%0A`;
+            whatsappMessage += `Quantidade de pessoas: ${guests}%0A%0A`;
+            
+            if (message) {
+                whatsappMessage += `Minha mensagem para vocês:%0A${message}%0A%0A`;
+            }
+            
+            whatsappMessage += `Com carinho,%0A${name}`;
+            
+            // Create WhatsApp URL
+            const phoneNumber = phoneNumbers[recipient];
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Show confirmation
+            setTimeout(() => {
+                alert('Obrigado por confirmar sua presença! Em breve entraremos em contato para mais detalhes.');
+                document.getElementById('rsvpForm').reset();
+                recipientBride.classList.add('selected');
+                recipientGroom.classList.remove('selected');
+                recipientField.value = 'bride';
+            }, 1000);
+        });
+
+        // Back to top button
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.getElementById('mobileMenuBtn').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrações & Eventos | Organização Profissional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5a2b;
+            --primary-light: #d4a76a;
+            --primary-dark: #5d3a1c;
+            --secondary: #1a1a1a;
+            --accent: #c19a6b;
+            --light: #f8f5f2;
+            --light-gray: #e8e3dd;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: clamp(1rem, 2vw, 1.1rem);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 3vw, 2rem);
+        }
+
+        section {
+            padding: clamp(3rem, 5vw, 6rem) 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: clamp(0.9rem, 2vw, 1.1rem) clamp(1.5rem, 3vw, 2.5rem);
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(139, 90, 43, 0.05);
+        }
+
+        .btn-large {
+            padding: clamp(1rem, 2vw, 1.3rem) clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--text-light);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        /* Navigation - Otimizado */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(1rem, 2vw, 1.5rem) 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section - Otimizado */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 80px 1rem 2rem;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 0 1rem;
+        }
+
+        /* Services Section - Otimizado */
+        .services {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2rem);
+            background-color: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+        }
+
+        /* Gallery Section - Otimizado */
+        .gallery {
+            background-color: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* RSVP Section - Otimizado */
+        .rsvp {
+            background-color: white;
+        }
+
+        .rsvp-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: clamp(2rem, 4vw, 4rem);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: clamp(0.95rem, 1.5vw, 1rem);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: clamp(0.9rem, 1.5vw, 1.1rem) clamp(1rem, 2vw, 1.5rem);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%238b5a2b' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1.5rem center;
+            background-size: 16px;
+            padding-right: 3.5rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: clamp(1rem, 2vw, 2rem);
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 0.8rem;
+            accent-color: var(--primary);
+        }
+
+        /* Testimonials Section - Otimizado */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonials-slider {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin: 0 1rem;
+        }
+
+        .testimonial-content {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .author-title {
+            color: var(--text-light);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        }
+
+        /* CTA Section - Otimizado */
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2:after {
+            background-color: white;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+
+        /* Footer - Otimizado */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: clamp(3rem, 5vw, 4rem) 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-light);
+            min-width: 20px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Modal - Otimizado */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+            padding: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            width: min(95%, 900px);
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: 1.5rem clamp(1rem, 3vw, 2rem);
+            background-color: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .modal-header h3 {
+            margin-bottom: 0;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--secondary);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: var(--radius);
+            object-fit: contain;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            padding: 2rem;
+            background-color: #d4edda;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .success-message i {
+            font-size: 3rem;
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive - Mobile First */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                z-index: 1000;
+                overflow-y: auto;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding-top: 100px;
+            }
+            
+            .hero-background, .cta {
+                background-attachment: scroll;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .whatsapp-float {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 55px;
+                height: 55px;
+                font-size: 1.8rem;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .testimonial-card {
+                padding: 1.5rem;
+                margin: 0;
+            }
+            
+            .whatsapp-float {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Performance Optimizations */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .gallery-item img {
+            will-change: transform;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            
+            .gallery-item:hover img {
+                transform: none;
+            }
+            
+            .service-card:hover,
+            .btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20um%20evento." 
+       target="_blank" 
+       class="whatsapp-float"
+       aria-label="Contato via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Celebrações<span>&</span>Eventos</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#rsvp">Confirmação</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#contact" class="btn btn-whatsapp">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background" aria-hidden="true"></div>
+        <div class="container">
+            <h1>Transformamos momentos em experiências inesquecíveis</h1>
+            <p>Festas, eventos corporativos e celebrações especiais organizadas com excelência e atenção aos detalhes.</p>
+            <a href="#contact" class="btn btn-large">Solicitar orçamento</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos soluções completas para todos os tipos de eventos, garantindo que cada detalhe seja perfeito.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-champagne-glasses" aria-hidden="true"></i>
+                    </div>
+                    <h3>Festas</h3>
+                    <p>Aniversários, casamentos, festas de formatura e celebrações familiares. Criamos ambientes únicos que refletem sua personalidade.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                    </div>
+                    <h3>Eventos Corporativos</h3>
+                    <p>Conferências, lançamentos, team buildings e festas de fim de ano. Profissionalismo e eficiência para impressionar seus convidados.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h3>Celebrações Especiais</h3>
+                    <p>Datas comemorativas, inaugurações, noivados e eventos temáticos. Transformamos suas ideias em realidade com criatividade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Galeria de Eventos</h2>
+            <p class="section-subtitle">Alguns dos momentos especiais que tivemos o prazer de organizar e acompanhar.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     aria-label="Festa corporativa">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Festa corporativa elegante com pessoas em traje social" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Festa Corporativa</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     aria-label="Casamento elegante">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Casamento elegante em ambiente decorado com flores" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Casamento Elegante</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     aria-label="Festa de aniversário">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Festa de aniversário com bolo e decoração colorida" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Festa de Aniversário</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     aria-label="Evento temático">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Evento temático com decoração especial e iluminação" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Evento Temático</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     aria-label="Festa de formatura">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Festa de formatura com estudantes celebrando" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Festa de Formatura</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1558618666-36d38d0ed5c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     aria-label="Conferência corporativa">
+                    <img src="https://images.unsplash.com/photo-1558618666-36d38d0ed5c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                         alt="Conferência corporativa com apresentação em palco" 
+                         loading="lazy">
+                    <div class="gallery-overlay">
+                        <h4>Conferência Corporativa</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp" id="rsvp">
+        <div class="container">
+            <h2>Confirmação de Presença</h2>
+            <p class="section-subtitle">Confirme sua participação em nossos próximos eventos ou solicite informações para seu próprio evento.</p>
+            
+            <div class="rsvp-form">
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" class="form-control" required placeholder="Digite seu nome completo">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">WhatsApp *</label>
+                        <input type="tel" id="phone" class="form-control" required placeholder="(11) 99999-9999">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="event">Tipo de Evento *</label>
+                        <select id="event" class="form-control" required>
+                            <option value="" selected disabled>Selecione o tipo de evento</option>
+                            <option value="corporate">Evento Corporativo</option>
+                            <option value="wedding">Casamento</option>
+                            <option value="birthday">Aniversário</option>
+                            <option value="graduation">Formatura</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Quantidade de Pessoas *</label>
+                        <select id="guests" class="form-control" required>
+                            <option value="" selected disabled>Selecione a quantidade</option>
+                            <option value="1">1 pessoa</option>
+                            <option value="2-5">2-5 pessoas</option>
+                            <option value="6-10">6-10 pessoas</option>
+                            <option value="11-20">11-20 pessoas</option>
+                            <option value="20+">Mais de 20 pessoas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Confirmação de Presença *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="confirm-yes" name="confirmation" value="yes" required>
+                                <label for="confirm-yes">Sim, confirmo presença</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="confirm-no" name="confirmation" value="no" required>
+                                <label for="confirm-no">Não poderei comparecer</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensagem (Opcional)</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Alguma observação, restrição alimentar ou mensagem especial..."></textarea>
+                    </div>
+                    
+                    <button type="button" id="sendWhatsApp" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                    </button>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Confirmação enviada com sucesso!</h3>
+                    <p>Obrigado por confirmar sua presença. Em breve você será redirecionado para o WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>Depoimentos</h2>
+            <p class="section-subtitle">O que nossos clientes dizem sobre nossos serviços e eventos.</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "A Celebrações & Eventos transformou nosso casamento em um dia perfeito. Cada detalhe foi pensado com carinho e profissionalismo. Recomendo de olhos fechados!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-name">Mariana Silva</div>
+                        <div class="author-title">Noiva</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Seu evento começa com uma boa organização</h2>
+            <p>Deixe a parte técnica e logística conosco. Nossa equipe está pronta para tornar seu evento inesquecível, do planejamento à execução.</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20um%20evento." 
+               target="_blank" 
+               class="btn btn-large btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Entrar em contato
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Celebrações & Eventos</h4>
+                    <p>Especialistas em criar experiências memoráveis através de organização impecável e atenção aos detalhes.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#rsvp">Confirmação</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+5511999999999">(11) 99999-9999</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:contato@celebracoes.com">contato@celebracoes.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Celebrações & Eventos. Site de demonstração para empresa de organização de festas e eventos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Imagem do Evento</h3>
+                <button class="close-modal" id="closeGalleryModal" aria-label="Fechar modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" class="modal-image" src="" alt="Imagem ampliada" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            this.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+            this.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Gallery modal functionality
+        const galleryModal = document.getElementById('galleryModal');
+        const closeGalleryModal = document.getElementById('closeGalleryModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const imageUrl = this.getAttribute('data-image');
+                const title = this.querySelector('h4').textContent;
+                const altText = this.querySelector('img').getAttribute('alt');
+                
+                modalImage.src = imageUrl;
+                modalImage.alt = altText;
+                modalTitle.textContent = title;
+                galleryModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeGalleryModal.addEventListener('click', () => {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        galleryModal.addEventListener('click', (e) => {
+            if (e.target === galleryModal) {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && galleryModal.style.display === 'flex') {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // WhatsApp form submission
+        const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
+        const successMessage = document.getElementById('successMessage');
+        
+        sendWhatsAppBtn.addEventListener('click', function() {
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const eventType = document.getElementById('event').value;
+            const guests = document.getElementById('guests').value;
+            const confirmation = document.querySelector('input[name="confirmation"]:checked');
+            const message = document.getElementById('message').value.trim();
+            
+            // Validation
+            if (!name || !phone || !eventType || !guests || !confirmation) {
+                alert('Por favor, preencha todos os campos obrigatórios (*).');
+                return;
+            }
+            
+            // Map event type to readable name
+            const eventTypeNames = {
+                'corporate': 'Evento Corporativo',
+                'wedding': 'Casamento',
+                'birthday': 'Aniversário',
+                'graduation': 'Formatura',
+                'other': 'Outro tipo de evento'
+            };
+            
+            // Map confirmation to readable text
+            const confirmationText = confirmation.value === 'yes' ? 'Sim, confirmo presença' : 'Não poderei comparecer';
+            
+            // Construct WhatsApp message
+            let whatsappMessage = `*CONFIRMAÇÃO DE PRESENÇA - Celebrações & Eventos*\n\n`;
+            whatsappMessage += `*Nome:* ${name}\n`;
+            whatsappMessage += `*Telefone:* ${phone}\n`;
+            whatsappMessage += `*Tipo de Evento:* ${eventTypeNames[eventType] || eventType}\n`;
+            whatsappMessage += `*Quantidade de Pessoas:* ${guests}\n`;
+            whatsappMessage += `*Confirmação:* ${confirmationText}\n\n`;
+            
+            if (message) {
+                whatsappMessage += `*Mensagem:*\n${message}\n\n`;
+            }
+            
+            whatsappMessage += `_Esta confirmação foi enviada através do site Celebrações & Eventos_`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Create WhatsApp URL (replace with your number)
+            const whatsappURL = `https://wa.me/5511999999999?text=${encodedMessage}`;
+            
+            // Show success message
+            successMessage.style.display = 'block';
+            document.getElementById('rsvpForm').reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Open WhatsApp after 1 second
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+            }, 1000);
+            
+            // Hide success message after 8 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 8000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navContainer = document.querySelector('.nav-container');
+            if (window.scrollY > 50) {
+                navContainer.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navContainer.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements to animate
+        document.querySelectorAll('.service-card, .gallery-item, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Phone number formatting
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 11) value = value.substring(0, 11);
+                
+                if (value.length > 10) {
+                    value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+                } else if (value.length > 6) {
+                    value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+                } else if (value.length > 2) {
+                    value = value.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+                } else if (value.length > 0) {
+                    value = value.replace(/^(\d*)/, '($1');
+                }
+                
+                e.target.value = value;
+            });
+        }
+
+        // Touch event optimizations for mobile
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>
